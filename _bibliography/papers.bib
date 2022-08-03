@@ -1,82 +1,360 @@
 ---
----
 
-@string{aps = {American Physical Society,}}
+@string { WPES = {ACM Workshop on Privacy in the Electronic Society (WPES)} }
+@string { SP = {IEEE Symposium on Security and Privacy (S\&P)} }
+@string { PETS = {Privacy Enhancing Technologies Symposium (PETS)} }
+@string { POPETS = {Proceedings on Privacy Enhancing Technologies (PoETS)} }
+@string { CCS = {ACM Conference on Computer and Communications Security (CCS)} }
+@string { ESORICS = {European Symposium on Research in Computer Security (ESORICS)} }
+@string { NDSS = {Network \& Distributed System Security Symposium (NDSS)} }
+@string { USENIX = {USENIX Security Symposium} }
+@string { IMC = {Internet Measurement Conference} }
 
-@book{einstein1956investigations,
-  bibtex_show={true},
-  title={Investigations on the Theory of the Brownian Movement},
-  author={Einstein, Albert},
-  year={1956},
-  publisher={Courier Corporation,},
-  preview={brownian-motion.gif}
+@misc{JuarezYF22,
+  doi = {},
+  url = {},
+  author = {Juarez, Marc and Yeom, Samuel and Fredrikson, Matt},
+  title = {Black-Box Audits for Group Distribution Shifts},
+  html={},
+  booktitle={To appear in arXiv},
+  publisher = {arXiv},
+  year = {2022},
+  copyright = {arXiv.org perpetual, non-exclusive license},
+  %selected={true},
+  abbr={ARXIV},
+  pdf={audits-arxiv22.pdf},
+  mlsecurity={true},
+  preprint={true}
 }
 
-@article{einstein1950meaning,
-  abbr={AJP},
-  bibtex_show={true},
-  title={The meaning of relativity},
-  author={Einstein, Albert and Taub, AH},
-  journal={American Journal of Physics,},
-  volume={18},
-  number={6},
-  pages={403--404},
-  year={1950},
-  publisher={American Association of Physics Teachers,}
+@misc{JuarezK22,
+  doi = {10.48550/ARXIV.2206.12183},
+  url = {https://arxiv.org/abs/2206.12183},
+  author = {Juarez, Marc and Korolova, Aleksandra},
+  title = {"You Can't Fix What You Can't Measure": Privately Measuring Demographic Performance Disparities in Federated Learning},
+  publisher = {arXiv},
+  note = {"Presented at TPDP'22 and to be presented at EAAMO'22 as a poster"},
+  year = {2022},
+  copyright = {arXiv.org perpetual, non-exclusive license},
+  %selected={true},
+  abbr={ARXIV},
+  pdf={dp-arxiv22.pdf},
+  booktitle={CoRR abs/2206.12183},
+  html={https://arxiv.org/abs/2206.12183},
+  supp={https://t.co/XDoin4Q3Zp},
+  note={Presented at TPDP'22 (non-archival)},
+  note2={To be presented at EAAMO'22 (non-archival)},
+  fairness={true},
+  preprint={true}
 }
 
-@article{PhysRev.47.777,
-  abbr={PhysRev},
-  title={Can Quantum-Mechanical Description of Physical Reality Be Considered Complete?},
-  author={Einstein, A. and Podolsky, B. and Rosen, N.},
-  abstract={In a complete theory there is an element corresponding to each element of reality. A sufficient condition for the reality of a physical quantity is the possibility of predicting it with certainty, without disturbing the system. In quantum mechanics in the case of two physical quantities described by non-commuting operators, the knowledge of one precludes the knowledge of the other. Then either (1) the description of reality given by the wave function in quantum mechanics is not complete or (2) these two quantities cannot have simultaneous reality. Consideration of the problem of making predictions concerning a system on the basis of measurements made on another system that had previously interacted with it leads to the result that if (1) is false then (2) is also false. One is thus led to conclude that the description of reality as given by a wave function is not complete.},
-  journal={Phys. Rev.,},
-  volume={47},
-  issue={10},
-  pages={777--780},
-  numpages={0},
-  year={1935},
-  month={May},
-  publisher=aps,
-  doi={10.1103/PhysRev.47.777},
-  url={http://link.aps.org/doi/10.1103/PhysRev.47.777},
-  html={https://journals.aps.org/pr/abstract/10.1103/PhysRev.47.777},
-  pdf={example_pdf.pdf},
-  selected={true}
+@misc{SchoefferRNMFJ22,
+  doi = {10.48550/ARXIV.2202.09727},
+  booktitle={CoRR abs/2202.09727},
+  url = {https://arxiv.org/abs/2202.09727},
+  author = {Schoeffer, Jakob and Ritchie, Alexander and Naggita, Keziah and Monachou, Faidra and Finocchiaro, Jessie and Juarez, Marc},
+  title = {Online Platforms and the Fair Exposure Problem Under Homophily},
+  publisher = {arXiv},
+  year = {2022},
+  copyright = {Creative Commons Attribution Non Commercial No Derivatives 4.0 International},
+  abbr={ARXIV},
+  pdf={arxiv22-1.pdf},
+  html={https://arxiv.org/abs/2202.09727},
+  fairness={true},
+  preprint={true}
 }
 
-@article{einstein1905molekularkinetischen,
-  title={{\"U}ber die von der molekularkinetischen Theorie der W{\"a}rme geforderte Bewegung von in ruhenden Fl{\"u}ssigkeiten suspendierten Teilchen},
-  author={Einstein, A.},
-  journal={Annalen der physik,},
-  volume={322},
-  number={8},
-  pages={549--560},
-  year={1905},
-  publisher={Wiley Online Library}
+@inproceedings{SibyJDVT20,
+	title			= {{Encrypted DNS $\Rightarrow$ Privacy? A Traffic Analysis Perspective.}},
+	author			= {Siby, Sandra and Juarez, Marc and Diaz, Claudia and Vallina-Rodriguez, Narseo and Troncoso, Carmela},
+	booktitle		= NDSS,
+	year			= {2020},
+    organization    = {Internet Society},
+    bibtex_show={true},
+    abbr={NDSS20},
+    pdf={ndss20.pdf},
+    selected={true},
+    code={https://github.com/spring-epfl/doh_traffic_analysis},
+    blog={https://www.esat.kuleuven.be/cosic/blog/does-doh-imply-privacy/},
+    supp={https://blog.apnic.net/2019/10/22/eavesdroppers-and-censors-can-still-monitor-what-youre-viewing-even-if-youre-using-encrypted-dns/},
+    traffic_analysis={true},
+    peer={true}
 }
 
-@article{einstein1905movement,
-  abbr={Ann. Phys.},
-  title={Un the movement of small particles suspended in statiunary liquids required by the molecular-kinetic theory 0f heat},
-  author={Einstein, A.},
-  journal={Ann. Phys.,},
-  volume={17},
-  pages={549--560},
-  year={1905}
+@inproceedings{SirinamIJW18,
+	title			= {Deep Fingerprinting: Undermining Website Fingerprinting Defenses With Deep Learning},
+	author 			= {Sirinam, Payap and Imani, Mohsen and Juarez, Marc and Wright, Matthew},
+	booktitle   	= CCS,
+	pages           = {1928--1943},
+	publisher       = {{ACM}},
+	year			= {2018},
+    abbr={CCS18},
+    bibtex_show={true},
+    selected={true},
+    pdf={ccs18.pdf},
+    code={https://github.com/deep-fingerprinting/df},
+    award={Finalist of the CCS'18 Outstanding Paper Awards},
+    traffic_analysis={true},
+    peer={true}
 }
 
-@article{einstein1905electrodynamics,
-  title={On the electrodynamics of moving bodies},
-  author={Einstein, A.},
-  year={1905}
+@inproceedings{RimmerPJVW18,
+	title			= {Automated Website Fingerprinting Through Deep Learning},
+	author			= {Rimmer, Vera and Preuveneers, Davy and Juarez, Marc and Van Goethem, Tom and Joosen, Wouter},
+	booktitle		= NDSS,
+	year			= {2018},
+	organization	= {Internet Society},
+    abbr={NDSS18},
+    selected={true},
+    bibtex_show={true},
+    pdf={dlwf-ndss18.pdf},
+    code={https://github.com/DistriNet/DLWF},
+    website={https://distrinet.cs.kuleuven.be/software/tor-wf-dl},
+    traffic_analysis={true},
+    peer={true}
 }
 
-@book{przibram1967letters,
-  bibtex_show={true},
-  title={Letters on wave mechanics},
-  author={Einstein, Albert and Schrödinger, Erwin and Planck, Max and Lorentz, Hendrik Antoon and Przibram, Karl},
-  year={1967},
-  publisher={Vision},
-  preview={wave-mechanics.gif}
+@inproceedings{JansenJGED18,
+	title			= {Inside Job: Applying Traffic Analysis to Measure Tor From Within},
+	author			= {Jansen, Rob and Juarez, Marc and Galvez, Rafael and Elahi, Tariq and Diaz, Claudia},
+	booktitle		= NDSS,
+	year			= {2018},
+	organization	= {Internet Society},
+    abbr={NDSS18},
+    selected={true},
+    bibtex_show={true},
+    pdf={inside-ndss18.pdf},
+    code={https://github.com/onionpop},
+    traffic_analysis={true},
+    peer={true}
 }
+
+@inproceedings{AfrozCJJPQST18,
+	author 			= {Afroz, Sadia and Chen, Huilin and Javed, Mobin and Juarez, Marc and Paxson, Vern and Qazi, S. A. and Sajid, S.  and Tschantz, Michael C.},
+	booktitle 		= {{Poster: Open Day for Privacy, Transparency and Decentralization Workshop}},
+	title 			= {Transparency into the Causes of Website Inaccessibility},
+	year 			= {2018},
+    censorship={true},
+    workshop={true}
+}
+
+@inproceedings{SibyJVT18,
+	title			= {{DNS Privacy not so private: the traffic analysis perspective}},
+	author			= {Siby, Sandra and Juarez, Marc and Vallina-Rodriguez, Narseo and Troncoso, Carmela},
+	booktitle 		= {{Workshop on Hot Topics in Privacy Enhancing Technologies (HotPETS)}},
+	year 			= {2018},
+    traffic_analysis={true},
+    workshop={true},
+}
+
+@inproceedings{JuarezR17,
+	title			= {{On the Application of Deep Learning Techniques to Website Fingerprinting Attacks and Defenses}},
+	author			= {Juarez, Marc and Rimmer, Vera},
+	booktitle 		= {{Deep Learning Security Workshop (Research Forum)}},
+	year 			= {2017},
+    award={Presentation Award},
+    traffic_analysis={true},
+    workshop={true}
+}
+
+@article{CherubinHJ17,
+	author          = {Cherubin, Giovanni and Hayes, Jamie and Juarez, Marc},
+	journal			= POPETS,
+	issue			= {2},
+	pages           = {168--185},
+	title           = {{Website Fingerprinting Defenses at the Application Layer}},
+	year			= {2017},
+	publisher       = {De Gruyter},
+    abbr={PETS17},
+    selected={true},
+    bibtex_show={true},
+    code={https://github.com/camelids},
+    blog={https://www.esat.kuleuven.be/cosic/website-fingerprinting-defenses-for-tor-hidden-services/},
+    supp={https://youtu.be/GrJTP1-CzJ8},
+    traffic_analysis={true},
+    peer={true}
+}
+
+@inproceedings{JuarezEJDGW17,
+	title			= {{Poster: Fingerprinting hidden service circuits from a Tor middle relay}},
+	author			= {Juarez, Marc and Elahi, Tariq and Jansen, Rob and Diaz, Claudia and Galvez, Rafael and Wright, Matthew},
+	booktitle 		= {{IEEE Symposium on Security and Privacy (S\&P)}},
+	year 			= {2017},
+    traffic_analysis={true},
+    workshop={true}
+}
+
+@inproceedings{OverdorfJAGD17,
+	author          = {Overdorf, Rebekah and Juarez, Marc and Acar, Gunes and Greenstadt, Rachel and Diaz, Claudia},
+	title           = {How unique is your onion? An Analysis of the Fingerprintability of Tor Onion Services},
+	booktitle       = CCS,
+	pages           = {2021--2036},
+	publisher       = {{ACM}},
+	year            = {2017},
+    abbr={CCS17},
+    bibtex_show={true},
+    pdf={ccs17.pdf},
+    selected={true},
+    code={https://github.com/fingerprintability/fingerprintability},
+    website={https://cosic.esat.kuleuven.be/fingerprintability},
+    award={Finalist of the PETS Caspar Bowden Award},
+    award2={Finalist of the CCS'17 Paper Awards},
+    traffic_analysis={true},
+    peer={true}
+}
+
+@inproceedings{GalvezJD16,
+	author 			= {Galvez, Rafael and Juarez, Marc and Diaz, Claudia},
+	booktitle 		= {{International Workshop on Inference and Privacy in a Hyperconnected World (INFER)}},
+	title 			= {Profiling Tor Users with Unsupervised Learning Techniques},
+	year 			= {2016},
+    traffic_analysis={true},
+    workshop={true}
+}
+
+@inproceedings{JuarezIPDW16,
+	author          = {Juarez, Marc and Imani, Mohsen and Perry, Mike and Diaz, Claudia and Wright, Matthew},
+	title           = {{Toward an Efficient Website Fingerprinting Defense}},
+	booktitle       = ESORICS,
+	pages           = {27--46},
+	publisher	    = {{Springer}},
+	year      	    = {2016},
+    abbr={ESORICS16},
+    bibtex_show={true},
+    pdf={esorics16.pdf},
+    code={https://github.com/wtfpad},
+    selected={true},
+    award={Outstanding Paper Award},
+    traffic_analysis={true},
+    peer={true}
+}
+
+@inproceedings{JuarezAADG14,
+	author          = {Juarez, Marc and Afroz, Sadia and Acar, Gunes and Diaz, Claudia and Greenstadt, Rachel},
+	title           = {A Critical Evaluation of Website Fingerprinting Attacks},
+	booktitle       = CCS,
+	pages           = {263--274},
+	publisher       = {{ACM}},
+	year            = {2014},
+    abbr={CCS14},
+    bibtex_show={true},
+    abbr={CCS14},
+    pdf={critical-ccs14.pdf},
+    code={https://github.com/webfp},
+    selected        = {true},
+    traffic_analysis={true},
+    peer={true}
+}
+
+
+@inproceedings{JuarezT15,
+	author			= {Juarez, Marc and Torra, Vicen\c{c}},
+	year			= {2015},
+	isbn			= {978-3-319-09884-5},
+	booktitle		= {Advanced Research in Data Privacy},
+	volume			= {567},
+	series			= {Studies in Computational Intelligence},
+	editor			= {Navarro-Arribas, Guillermo and Torra, Vicen\'c},
+	doi				= {10.1007/978-3-319-09885-2_21},
+	title			= {DisPA: An Intelligent Agent for Private Web Search},
+	url				= {http://dx.doi.org/10.1007/978-3-319-09885-2_21},
+	publisher		= {Springer International Publishing},
+	keywords		= {Privacy; Web search; Search personalization; Query classification},
+	pages			= {389-405},
+	language		= {English},
+    bibtex_show={true},
+    search={true},
+    book={true}
+}
+
+@inproceedings{AcarEEJND2014,
+	author 			= {Acar, Gunes and Eubank, Christian and Englehardt, Steven and Juarez, Marc and Narayanan, Arvind and Diaz, Claudia},
+	booktitle 		= CCS,
+	pages 			= {674--689},
+	publisher 		= {ACM},
+	title 			= {The Web Never Forgets: Persistent Tracking Mechanisms in the Wild},
+	year 			= {2014},
+    abbr={CCS14},
+    bibtex_show={true},
+    pdf={never-ccs14.pdf},
+    website={https://securehomes.esat.kuleuven.be/%7Egacar/persistent/},
+    code={https://github.com/citp/TheWebNeverForgets},
+    device_fp={true},
+    peer={true}
+}
+
+@inproceedings{AcarJNDGPP13,
+	author 			= {Acar, Gunes and Juarez, Marc and Nikiforakis, Nick and Diaz, Claudia and G\"{u}rses, Seda F. and Piessens, Frank and Preneel, Bart},
+	booktitle 		= CCS,
+	pages 			= {1129--1140},
+	publisher 		= {ACM},
+	title 			= {{FPDetective: Dusting the Web for fingerprinters}},
+	year 			= {2013},
+    abbr={CCS13},
+    bibtex_show={true},
+    selected={true},
+    pdf={ccs13.pdf},
+    website={https://www.cosic.esat.kuleuven.be/fpdetective/},
+    code={https://github.com/fpdetective/fpdetective},
+    award={Award for Outstanding Research in PETS, runner-up},
+    device_fp={true},
+    peer={true}
+}
+
+@inproceedings{JuarezT13b,
+	author			= {Juarez, Marc and Torra, Vicen\c{c}},
+	booktitle		= {{International Conference on Privacy, Security and Trust}},
+	isbn			= {9781467358392},
+	pages			= {44--50},
+	title			= {{A Self-Adaptive Classification for the Dissociating Privacy Agent}},
+	year			= {2013},
+    abbr={PST13},
+    pdf={pst13.pdf},
+    bibtex_show={true},
+    search={true},
+    peer={true}
+}
+
+@article{JuarezT13a,
+	author			= {Juarez, Marc and Torra, Vicen\c{c}},
+	isbn			= {9781467358392},
+	journal			= {{International Journal of Intelligent Systems}},
+	number			= {6},
+	pages			= {606--622},
+	title			= {{Towards a Privacy Agent for Information Retrieval}},
+	url				= {http://onlinelibrary.wiley.com/doi/10.1002/int.21595/full},
+	volume			= {28},
+	year			= {2013},
+    %selected={true},
+    abbr={IJIS},
+    bibtex_show={true},
+    code={http://code.google.com/p/dispa-framework/},
+    pdf={ijis13.pdf},
+    search={true},
+    peer={true}
+}
+
+@phdthesis{Juarez19,
+  author       = {Juarez, Marc},
+  title        = {Design and Evaluation of Website Fingerprinting Techniques},
+  school       = {KU Leuven},
+  year         = 2019,
+  award        = {<em style="color: purple">Summa cum laude</em> with the congratulations of the jury},
+  award2       = {ACM SIGSAC Doctoral Dissertation Award runner-up},
+  pdf={phd-thesis.pdf},
+  note={PhD thesis},
+  traffic_analysis={true},
+  thesis={true}
+}
+
+@mastersthesis{Juarez13,
+  author       = {Juarez, Marc},
+  title        = {DisPA, un Agent per a la Cerca Privada a la Web},
+  school       = {Universitat Aut\'onoma de Barcelona},
+  year         = 2013,
+  pdf={pfc.pdf},
+  note={Undergraduate thesis},
+  search={true},
+  thesis={true}
+}
+

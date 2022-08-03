@@ -6,7 +6,7 @@ layout: default
       <div class="post">
         <header class="post-header">
           <h1 class="post-title">
-           {% if site.title == "blank" -%}<span class="font-weight-bold">{{ site.first_name }}</span> {{ site.middle_name }} {{ site.last_name }}{%- else -%}{{ site.title }}{%- endif %}
+           {% if site.title == "blank" -%}{{ site.first_name }} {{ site.middle_name }} {{ site.last_name }}{%- else -%}{{ site.title }}{%- endif %}
           </h1>
           <p class="desc">{{ page.subtitle }}</p>
         </header>
@@ -14,6 +14,7 @@ layout: default
         <article>
           {% if page.profile -%}
           <div class="profile float-{%- if page.profile.align == 'left' -%}left{%- else -%}right{%- endif -%}">
+            <div class="image">
             {%- if page.profile.image %}
               {%- assign profile_image_path = page.profile.image | prepend: 'assets/img/' -%}
 
@@ -28,6 +29,12 @@ layout: default
               class=profile_image_class
               alt=page.profile.image -%}
             {% endif -%}
+            </div>
+            <div class="affiliation">
+            {%- if page.profile.affiliation %}
+              {{ page.profile.affiliation }}
+            {%- endif %}
+            </div>
             {%- if page.profile.address %}
             <div class="address">
               {{ page.profile.address }}
@@ -38,18 +45,39 @@ layout: default
 
           <div class="clearfix">
             {{ content }}
-          </div>
 
-          {% if page.news -%}
-          <!-- News -->
-          {%- include news.html %}
-          {%- endif %}
-          {% if page.selected_papers -%}
-            <!-- Selected papers -->
-            {%- include selected_papers.html %}
-          {%- endif %}
-          {%- if page.social %}
+              <div class="news">
+                <h2>News</h2>
+                <ul>
+                    <li><p><a href="./announcement">I am <code class="language-plaintext highlighter-rouge">hiring</code> PhD students!</a></p></li>
+                    <li><p>I joined the University of Edinburgh as a faculty member!</p></li>
+                    <li><p>I presented our new work on <em>Privately Measuring Demographic Performance Disparities in Federated Learning</em>. <a href="https://twitter.com/mjuarezm_/status/1550537320922722305?s=20&t=leI_GVuFmYl9El-cpin3iw">See tweet</a>.</p></li>
+              </div>
+
+            <h2>Research</h2>
+
+            <p>My research topics and a sample of relevant work:</p>
+
+            <ul>
+                <li><p><strong>ML-Based Traffic Analysis</strong>: the development and evaluation of traffic analysis defenses from both a practical and theoretical point of view.</p></li>
+                <ul>
+                    <li><p>S. Siby, M. Juarez, C. Diaz, N. Vallina-Rodriguez, and C. Troncoso. "Encrypted DNS ⇒Privacy? A Traffic Analysis Perspective." NDSS, 2020.</p></li>
+                </ul>
+                <li><p><strong>Security and Privacy of ML</strong>: the design of methods to audit privacy and security of ML models, and the development of privacy-aware ML techniques.</p></li>
+                <ul>
+                    <li><p>M. Juarez, S. Yeom, and M. Fredrikson. "Black-Box Audits for Group Distribution Shifts." arXiv pre-print, 2022.</p></li>
+                </ul>
+                <li><p><strong>Privacy and Fairness</strong>: the privacy challenges that arise from identifying and mitigating algorithmic bias.</p></li>
+                <ul>
+                    <li><p>M. Juarez, and A. Korolova. "'You Can’t Fix What You Can’t Measure': Privately Measuring Demographic Performance Disparities in Federated Learning." arXiv pre-print, 2022.</p></li>
+                </ul>
+            </ul>
+
+        See the complete list of <a href="./publications"><code class="language-plaintext highlighter-rouge">publications</code></a>.
+        
+
           <!-- Social -->
+          {%- if page.social %}
           <div class="social">
             <div class="contact-icons">
             {% include social.html %}
@@ -62,5 +90,7 @@ layout: default
           </div>
           {%- endif %}
         </article>
+
+
 
 </div>

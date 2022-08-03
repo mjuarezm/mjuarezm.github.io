@@ -1,0 +1,43 @@
+ARXIV:
+    name: arXiv
+    url: https://arxiv.org/
+
+NDSS20:
+    name: NDSS'20
+    url: https://www.ndss-symposium.org/ndss2020
+
+NDSS18:
+    name: NDSS'18
+    url: https://www.ndss-symposium.org/ndss2018
+
+PETS17:
+    name: PETS'17
+    url: https://petsymposium.org/2017/
+
+ESORICS16:
+    name: ESORICS'16
+    url: https://projects.ics.forth.gr/esorics2016/
+
+CCS18:
+    name: CCS'18
+    url: https://www.sigsac.org/ccs/CCS2018/index.html
+
+CCS17:
+    name: CCS'17
+    url: https://ccs2017.sigsac.org/
+
+CCS14:
+    name: CCS'14
+    url: https://www.sigsac.org/ccs/CCS2014/
+
+CCS13:
+    name: CCS'13
+    url: https://www.sigsac.org/ccs/CCS2013/
+
+PST13:
+    name: PST'13
+    url: https://unescoprivacychair.urv.cat/pst2013/index.php
+
+IJIS:
+    name: IJIS
+    url: https://onlinelibrary.wiley.com/journal/1098111X

@@ -1,3 +1,5 @@
+.*.md
+.DS_Store
 _site
 .bundle
 .sass-cache

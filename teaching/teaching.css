@@ -1,0 +1,13 @@
+pre {
+  white-space: pre-line;
+  border: 0;
+  background-color: transparent;
+  color: black;
+  font-family: sans-serif;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding:0;
+}
