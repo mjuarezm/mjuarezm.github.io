@@ -6,7 +6,7 @@ date: 2022-08-08 16:11:00-0400
 inline: false
 ---
 
-I am looking for motivated PhD students with a strong mathematical background and familiarity with the field of security and privacy and, ideally, some previous research experience.
+I am looking for motivated PhD students with a solid mathematical background, some familiarity with the fields of machine learning, and security and privacy and, ideally, previous research experience.
 
 The student will be working with me on one of these topics:
 
