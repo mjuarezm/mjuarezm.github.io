@@ -75,7 +75,7 @@ quora_username: # your Quora username
 publons_id: # your ID on Publons
 research_gate_profile: # your profile on ResearchGate
 blogger_url: # your blogger URL
-work_url: # work page URL
+work_url: https://www.research.ed.ac.uk/en/persons/marc-juarez-miro # work page URL
 keybase_username: mjuarezm # your keybase user name
 wikidata_id: # your wikidata id
 #dblp_url: # your DBLP profile url
