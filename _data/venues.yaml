@@ -2,6 +2,10 @@ ARXIV:
     name: arXiv
     url: https://arxiv.org/
 
+AFCP22:
+    name: AFCP'22
+    url: https://www.afciworkshop.org/afcp2022
+
 NDSS20:
     name: NDSS'20
     url: https://www.ndss-symposium.org/ndss2020
