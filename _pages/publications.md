@@ -11,8 +11,10 @@ nav_order: 2
 <!-- _pages/publications.md -->
 <div class="publications">
 
+<!--
 <h3>Pre-prints</h3>
   {% bibliography -f papers -q @*[preprint=true]* %}
+-->
 
 <h3>Peer-reviewed</h3>
   {% bibliography -f papers -q @*[peer=true]* %}
