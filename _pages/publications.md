@@ -14,14 +14,14 @@ nav_order: 2
 <h3>Pre-prints</h3>
   {% bibliography -f papers -q @*[preprint=true]* %}
 
-<h3>Peer-reviewed</h3>
+<h3>International Conferences and Workshops</h3>
   {% bibliography -f papers -q @*[peer=true]* %}
 
 <h3>Book chapters</h3>
   {% bibliography -f papers -q @*[book=true]* %}
 
-<h3>Workshops</h3>
-  {% bibliography -f papers -q @*[workshop=true]* %}
+<h3>Posters</h3>
+  {% bibliography -f papers -q @*[poster=true]* %}
 
 <h3>Theses</h3>
   {% bibliography -f papers -q @*[thesis=true]* %}
