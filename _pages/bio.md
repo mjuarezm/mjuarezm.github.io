@@ -13,7 +13,7 @@ Marc Juarez is a Lecturer in Cyber Security and Privacy at the University of Edi
 <ul>
     <li>PhD in Engineering Science: Electrical Engineering, 2019. KU Leuven</li>
     <ul>
-        <li>Advisor: Claudia Diaz</li>
+        <li>Advisor: <a href="https://homes.esat.kuleuven.be/~cdiaz/">Claudia Diaz</a></li>
         <li>Dissertation: "Design and Evaluation of Website Fingerprinting Techniques"</li>
     </ul>
     <li>Double degree in Mathematics and Computer Engineering, 2013. Universitat Autònoma de Barcelona</li>
