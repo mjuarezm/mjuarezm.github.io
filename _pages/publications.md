@@ -11,11 +11,11 @@ nav_order: 2
 <!-- _pages/publications.md -->
 <div class="publications">
 
-<h3>Pre-prints</h3>
-  {% bibliography -f papers -q @*[preprint=true]* %}
-
 <h3>International Conferences and Workshops</h3>
   {% bibliography -f papers -q @*[peer=true]* %}
+
+<h3>Pre-prints</h3>
+  {% bibliography -f papers -q @*[preprint=true]* %}
 
 <h3>Book chapters</h3>
   {% bibliography -f papers -q @*[book=true]* %}
