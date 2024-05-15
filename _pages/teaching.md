@@ -13,10 +13,10 @@ nav_order: 3
 <p style="margin-top: -15px; padding: 0">
 <pre >
 <strong>Privacy and Security with Machine Learning (PSML)</strong>. University of Edinburgh
-2023--Present
+2023-Present
 Lecturer and Course Organizer
-</pre>
 This course is offered to the Cyber Security, Privacy, and Trust and Artificial Intelligence MSc programs. It explores the security and privacy risks posed by the application of AI/ML techniques. The first part of the course covers applications of AI/ML techniques in the cybersecurity domain, and the second part introduces the field of adversarial ML, including novel attacks like membership inference and adversarial examples, and mitigation strategies.
+</pre>
 </p>
 </li>
 
@@ -24,16 +24,24 @@ This course is offered to the Cyber Security, Privacy, and Trust and Artificial 
 <p>
 <pre>
 <strong>Computer Security (CSEC)</strong>. University of Edinburgh.
-2023--Present
+2023-Present
 Lecturer and Course Organizer of level 11
-</pre>
 CSEC is the core course on computer security offered to UG3 undergraduate students and students of the Cyber Security, Privacy, and Trust MSc. The goal of the course if to introduce students to the fundamental security concepts and offer them working knowledge of threats and countermeasures.
+</pre>
 </p>
 </li>
 
 
 <h2>Student Supervision</h2>
+<ul>
+<li>
+<pre>
+<p>
 I supervise approx. 5 undergraduate and 5 master projects every academic year.
+</p>
+</pre>
+</li>
+</ul>
 
 <h2>Invited Lectures</h2>
 <ul>
@@ -80,7 +88,7 @@ Oct, 2023
 <pre>
 <strong>Machine Learning for Traffic Analysis</strong>
 Summer School on Security and Privacy in the Age of AI 
-Dept of Computer Science -- DistriNet
+Dept of Computer Science - DistriNet
 KU Leuven
 Belgium, UK
 Sept, 2023
