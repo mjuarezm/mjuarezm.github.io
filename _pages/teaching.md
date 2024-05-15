@@ -12,48 +12,54 @@ nav_order: 3
 <li>
 <p style="margin-top: -15px; padding: 0">
 <pre >
-<strong>Adjunct Professor</strong>. Universitat Oberta de Catalunya.
-Academic year 2020-21 (6+6 ECTS)
-Privacy course (M1.771) of the Cyber Security and Privacy Master Program
+<strong>Privacy and Security with Machine Learning (PSML)</strong>. University of Edinburgh
+2023--Present
+Lecturer and Course Organizer
 </pre>
+This course is offered to the Cyber Security, Privacy, and Trust and Artificial Intelligence MSc programs. It explores the security and privacy risks posed by the application of AI/ML techniques. The first part of the course covers applications of AI/ML techniques in the cybersecurity domain, and the second part introduces the field of adversarial ML, including novel attacks like membership inference and adversarial examples, and mitigation strategies.
 </p>
 </li>
 
 <li>
 <p>
 <pre>
-<strong>Teaching Assistant</strong>. KU Leuven.
-Academic years 2016-19
-Privacy Enhancing Technologies (B-KUL-H09L2A) course of the Master of Electrical Engineering Program
+<strong>Computer Security (CSEC)</strong>. University of Edinburgh.
+2023--Present
+Lecturer and Course Organizer of level 11
 </pre>
+CSEC is the core course on computer security offered to UG3 undergraduate students and students of the Cyber Security, Privacy, and Trust MSc. The goal of the course if to introduce students to the fundamental security concepts and offer them working knowledge of threats and countermeasures.
 </p>
 </li>
-
-<li>
-<p>
-<pre>
-<strong>Teaching Assistant</strong>. KU Leuven.
-Academic years 2014-19
-Privacy and Big Data (B-KUL-H00Y2A) course of the Master of Artificial Intelligence Program
-</pre>
-</p>
-</li>
-</ul>
-
 
 
 <h2>Student Supervision</h2>
-I co-supervised the following projects:
+I supervise approx. 5 undergraduate and 5 master projects every academic year.
+
+<h2>Invited Lectures</h2>
 <ul>
 
 <li>
 <p>
 <pre>
-<strong>Is Tor under <em>a tag</em>? Detecting Tagging Attacks in Tor</strong>
-Fan Yang (KU Leuven MAI)
-2018-19
-Promotor: Prof. Claudia Diaz
-Daily supervisors: Marc Juarez, Rafael Galvez and Tomer Ashur
+<strong>Applications of Machine Learning to Traffic Analysis</strong>
+Ewha Womans University
+Seoul, South Korea (Online)
+May, 2024
+</pre>
+</p>
+</li>
+<li>
+<p>
+
+<li>
+<p>
+<pre>
+<strong>Machine Learning for Traffic Analysis</strong>
+SIGINT Pwned5 
+The Nucleus Building
+University of Edinburgh
+Edinburgh, UK
+Mar, 2024
 </pre>
 </p>
 </li>
@@ -61,11 +67,10 @@ Daily supervisors: Marc Juarez, Rafael Galvez and Tomer Ashur
 <li>
 <p>
 <pre>
-<strong>Fingerprinting Mobile Applications with Deep Learning</strong>
-Albert Pou (ERASMUS, KU Leuven and Universitat Politècnica de Catalunya)
-2018-19
-Promotor: Prof. Bart Preneel
-Daily supervisors: Marc Juarez and Bekah Overdorf
+<strong>Privacy in the Web</strong>
+INCACrypto (co-located with LATINCRYPT)
+Quito, Equador (Online)
+Oct, 2023
 </pre>
 </p>
 </li>
@@ -73,11 +78,12 @@ Daily supervisors: Marc Juarez and Bekah Overdorf
 <li>
 <p>
 <pre>
-<strong>Learning from a black-box</strong>
-Sebastiaan Jamaer (KU Leuven CS)
-2018-19
-Promotor: Prof. Nigel Smart
-Daily supervisors: Dragos Rotaru and Marc Juarez
+<strong>Machine Learning for Traffic Analysis</strong>
+Summer School on Security and Privacy in the Age of AI 
+Dept of Computer Science -- DistriNet
+KU Leuven
+Belgium, UK
+Sept, 2023
 </pre>
 </p>
 </li>
@@ -85,132 +91,23 @@ Daily supervisors: Dragos Rotaru and Marc Juarez
 <li>
 <p>
 <pre>
-<strong>Email tracking: A study on its prevalence and the design of countermeasures</strong>
-2017-18
-Shirin Kalantari (KU Leuven CS)
-Promotor: Prof. Claudia Diaz
-Daily supervisors: Marc Juarez and Tom Van Goethem
+<strong>Website Fingerprinting Attacks in Practice</strong>
+SIGINT Pwned4 
+School of Informatics
+University of Edinburgh
+Edinburgh, UK
+Apr, 2023
 </pre>
 </p>
 </li>
 
-<li>
-<p>
-<pre>
-<strong>Measuring the Prevalence of Browser Fingerprinting Within Browser Extensions</strong>
-Danica Reardon (KU Leuven MAI)
-2017-18
-Promotor: Prof. Bart Preneel
-Daily supervisors: Iraklis Symeonidis and Marc Juarez
-</pre>
-</p>
-</li>
-
-<li>
-<p>
-<pre>
-<strong>Leveraging collaborative security to thwart cross-site attack</strong>
-Seppe Duwe (KU Leuven CS)
-2017-18
-Promotor: Prof. Wouter Joosen
-Daily supervisors: Tom Van Goethem and Marc Juarez
-</pre>
-</p>
-</li>
-
-<li>
-<p>
-<pre>
-<strong>Smartphone Fingerprinting Via Motion Sensors</strong>
-Amogh Pradeep (Summer Intern in COSIC)
-2016-17
-Promotor: Prof. Claudia Diaz
-Daily supervisors: Gunes Acar and Marc Juarez
-</pre>
-</p>
-</li>
-
-<li>
-<p>
-<pre>
-<strong>Deep Learning Website Fingerprinting</strong>
-Vera Rimmer (KU Leuven MAI)
-2016-17
-Promotor: Prof. Claudia Diaz
-Daily supervisors: Ero Balsa and Marc Juarez
-</pre>
-</p>
-</li>
-
-<li>
-<p>
-<pre>
-<strong>Investigating Tor’s Resilience using Shadow</strong>
-Samantha Wojtowicz (KU Leuven and Group T)
-2015-16
-Promotor: Prof. Luc Vandeurzen
-Daily supervisors: Fatemeh Shirazi and Marc Juarez
-</pre>
-</p>
-</li>
-
-<li>
-<p>
-<pre>
-<strong>Automatic Detection of Device Fingerprinting</strong>
-Nidia Ximena Robles Aguilar (KU Leuven MAI)
-2014-15
-Promotor: Prof. Claudia Diaz
-Daily supervisors: Gunes Acar and Marc Juarez
-</pre>
-</p>
-</li>
-</ul>
-
-
-<h2>Teaching Materials</h2>
-I authored the following teaching materials:
-<ul>
-<li>
-<p>
-<pre>
-<strong>Algorithmic Bias (PID_00278565)</strong>
-Marc Juarez
-Universitat Oberta de Catalunya, 2020
-</pre>
-</p>
-</li>
-
-<li>
-<p>
-<pre>
-<strong>Privacy Attacks Against Internet Users (PID_00275712)</strong>
-Marc Juarez and Enric Luján Carbonell
-Universitat Oberta de Catalunya, 2020
-</pre>
-</p>
-</li>
-
-<li>
-<p>
-<pre>
-<strong>Privacy-preserving communication protocols (PID_00274683)</strong>
-Marc Juarez
-Universitat Oberta de Catalunya, 2020
-</pre>
-</p>
-</li>
-</ul>
-
-<h2>Guest Lectures</h2>
-<ul>
 <li>
 <p>
 <pre>
 <strong>An Overview of Fingerprinting Techniques in the Web</strong>
 30219D – CSCI631 Privacy in the World of Big Data
-University of Southern California
 Department of Computer Science
+University of Southern California
 Los Angeles, USA
 Nov, 2021
 </pre>
@@ -222,7 +119,7 @@ Nov, 2021
 <pre>
 <strong>Is Website Fingerprinting Actually Practical?</strong>
 Keynote at the Data Privacy Management Workshop (DPM)
-Virtual
+Online
 Sept, 2020
 </pre>
 </p>
@@ -233,8 +130,8 @@ Sept, 2020
 <pre>
 <strong>Fingerprinting Techniques in the Web</strong>
 30219D – CSCI631 Privacy in the World of Big Data
-University of Southern California
 Department of Computer Science
+University of Southern California
 Los Angeles, USA
 Nov, 2019
 </pre>
