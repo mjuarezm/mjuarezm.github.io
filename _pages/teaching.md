@@ -2,7 +2,7 @@
 layout: page
 permalink: /teaching/
 title: Teaching
-description: Experience with teaching and student supervision.
+description:
 nav: true
 nav_order: 3
 ---
@@ -26,22 +26,11 @@ This course is offered to the Cyber Security, Privacy, and Trust and Artificial 
 <strong>Computer Security (CSEC)</strong>. University of Edinburgh.
 2023-Present
 Lecturer and Course Organizer of level 11
-CSEC is the core course on computer security offered to UG3 undergraduate students and students of the Cyber Security, Privacy, and Trust MSc. The goal of the course if to introduce students to the fundamental security concepts and offer them working knowledge of threats and countermeasures.
+CSEC is the core course on computer security offered to UG3 undergraduate students and students of the Cyber Security, Privacy, and Trust MSc. The goal of the course is to introduce students to the fundamental security concepts and offer them working knowledge of threats and countermeasures.
 </pre>
 </p>
 </li>
 
-
-<h2>Student Supervision</h2>
-<ul>
-<li>
-<pre>
-<p>
-I supervise approx. 5 undergraduate and 5 master projects every academic year.
-</p>
-</pre>
-</li>
-</ul>
 
 <h2>Invited Lectures</h2>
 <ul>
@@ -199,3 +188,9 @@ Mar, 2016
 </pre>
 </p>
 </li>
+
+<h2>Student Supervision</h2>
+<p>
+I supervise approx. 5 undergraduate and 5 master projects every academic year.
+</p>
+
