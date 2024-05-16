@@ -25,7 +25,7 @@ This course is offered to the Cyber Security, Privacy, and Trust and Artificial 
 <pre>
 <strong>Computer Security (CSEC)</strong>. University of Edinburgh.
 2023-Present
-Lecturer and Course Organizer of level 11
+Lecturer and Course Organizer (of the level 11 course)
 CSEC is the core course on computer security offered to UG3 undergraduate students and students of the Cyber Security, Privacy, and Trust MSc. The goal of the course is to introduce students to the fundamental security concepts and offer them working knowledge of threats and countermeasures.
 </pre>
 </p>
