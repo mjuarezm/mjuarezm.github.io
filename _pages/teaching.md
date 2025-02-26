@@ -42,6 +42,20 @@ I supervise approx. 5 undergraduate and 5 master projects every academic year.
 <li>
 <p>
 <pre>
+<strong>AI for Traffic Analysis Attacks and Defenses</strong>
+Summer School on Security and Privacy in the Age of AI
+KU Leuven
+Leuven, Belgium
+September, 2024
+</pre>
+</p>
+</li>
+
+<li>
+<p>
+<li>
+<p>
+<pre>
 <strong>Applications of Machine Learning to Traffic Analysis</strong>
 Ewha Womans University
 Seoul, South Korea (Online)
