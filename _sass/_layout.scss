@@ -40,9 +40,12 @@ body.sticky-bottom-footer {
 // the <h2> heading above it (which, being a plain block, stays in the
 // narrow column beside the photo). Let it shrink to fit next to the float
 // instead, matching how the rest of the page content wraps around it.
+// margin-bottom restores the spacing Bootstrap's Reboot removes from the
+// following heading's margin-top, since .table-responsive has none itself.
 .news {
   .table-responsive {
     width: auto;
+    margin-bottom: 1rem;
   }
 }
 
