@@ -28,7 +28,7 @@ _styles: |
 <strong>Privacy and Security with Machine Learning (PSML)</strong>. University of Edinburgh
 2023-Present
 Lecturer and Course Organizer
-This course is offered to the Cyber Security, Privacy, and Trust and Artificial Intelligence MSc programs. It explores the security and privacy risks posed by the application of AI/ML techniques. The first part of the course covers applications of AI/ML techniques in the cybersecurity domain, and the second part introduces the field of adversarial ML, including novel attacks like membership inference and adversarial examples, and mitigation strategies.
+This course is offered to the Cyber Security, Privacy, and Trust and Artificial Intelligence MSc programs. It explores the security and privacy risks posed by the application of AI/ML techniques. The first part of the course covers applications of AI/ML techniques in the cybersecurity domain, and the second part introduces the field of adversarial ML, including novel attacks like membership inference and evasion attacks, and mitigation strategies.
 </pre>
 </p>
 </li>
@@ -37,7 +37,7 @@ This course is offered to the Cyber Security, Privacy, and Trust and Artificial 
 <p>
 <pre>
 <strong>Computer Security (CSEC)</strong>. University of Edinburgh.
-2023-Present
+2023-2026
 Lecturer and Course Organizer (of the level 11 course)
 CSEC is the core course on computer security offered to UG3 undergraduate students and students of the Cyber Security, Privacy, and Trust MSc. The goal of the course is to introduce students to the fundamental security concepts and offer them working knowledge of threats and countermeasures.
 </pre>
@@ -51,6 +51,84 @@ I supervise approx. 5 undergraduate and 5 master projects every academic year.
 
 <h2>Invited Lectures</h2>
 <ul>
+
+<li>
+<p>
+<pre>
+<strong>Panel on AI Governance
+</strong>
+Fast Forward 2026: AI Futures Beyond the Hype
+University of Edinburgh
+Edinburgh, UK
+May, 2026
+</pre>
+</p>
+</li>
+
+<li>
+<p>
+<pre>
+<strong>On the Security of Technical Approaches for AI Image Provenance
+</strong>
+Centre for Technomorals Futures
+University of Edinburgh
+Edinburgh, UK
+May, 2026
+</pre>
+</p>
+</li>
+
+<li>
+<p>
+<pre>
+<strong>A Crack in the Bark: Leveraging Public Knowledge to Remove Tree-Ring Watermarks
+</strong>
+Internal seminar
+University of Glasgow
+Glasgow, UK
+December, 2025
+</pre>
+</p>
+</li>
+
+<li>
+<p>
+<pre>
+<strong>Traffic Analysis Attacks and Defenses
+</strong>
+Colloquium
+KAIST
+Daejeon, South Korea
+November, 2025
+</pre>
+</p>
+</li>
+
+<li>
+<p>
+<pre>
+<strong>A Crack in the Bark: Leveraging Public Knowledge to Remove Tree-Ring Watermarks
+</strong>
+Internal seminar
+Ewha Womans University
+Seoul, South Korea
+November, 2025
+</pre>
+</p>
+</li>
+
+<li>
+<p>
+<pre>
+<strong>Privacy and security with ML: a research overview
+</strong>
+Internal seminar
+UPC
+Barcelona, Spain
+September, 2024
+</pre>
+</p>
+</li>
 
 <li>
 <p>
@@ -112,6 +190,18 @@ Dept of Computer Science - DistriNet
 KU Leuven
 Belgium, UK
 Sept, 2023
+</pre>
+</p>
+</li>
+
+<li>
+<p>
+<pre>
+<strong>Research at the University of Edinburgh's Security and Privacy Group</strong>
+Internal Presentation
+Amazon Research
+Edinburgh, UK
+June, 2023
 </pre>
 </p>
 </li>
