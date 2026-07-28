@@ -24,8 +24,8 @@ layout: default
                 {%- assign profile_image_class = "img-fluid z-depth-1 rounded" -%}
               {% endif %}
 
-              {% include figure.html 
-              path=profile_image_path 
+              {% include figure.html
+              path=profile_image_path
               class=profile_image_class
               alt=page.profile.image -%}
             {% endif -%}
@@ -45,20 +45,6 @@ layout: default
 
           <div class="clearfix">
             {{ content }}
-
-              <div class="news">
-                <h2>News</h2>
-                <ul>
-	            <li><p>Kai will present our SaTML'26 paper next week. <a href="https://arxiv.org/pdf/2512.11771" target="_blank">Check the preprint!</a></p></li>
-	            <li><p>Paper accepted at USENIX'25 on VAE-based attacks against Tree-Ring watermarking. <a href="http://arxiv.org/abs/2506.10502" target="_blank">Check it out!</a></p></li>
-	            <li><p>New paper to appear in the proceedings of Autonomous Cyber (ESORICS). This work is based on Melanie Meijer's <a href="https://drive.google.com/file/d/1Ql2ugIz5G3IZD3VzLcqZRe1LkI9M8ZoC/view">MSc dissertation</p></li>
-	            <li><p>Co-organizing a <a href="https://gail.ed.ac.uk/news-and-events/events/beyond-deepfakes-advancing-watermarking-in-generative-ai">workshop</a> on watermarking for GenAI.</p></li>
-	            <li><p>We have received GAIL seed funding to work on undetectable watermarks for generative AI.</p></li>
-	            <li><p>Paper accepted to SaTML'25 on the <a href="https://arxiv.org/abs/2501.14414v1" target="_blank">(un)fairness of private ML.</a></p></li>
-                    <li><p>We received the PETS student paper award for our work on end-to-end correlation in Nym. Check our <a href="https://www.esat.kuleuven.be/cosic/blog/mixmatch-flow-matching-for-mixnet-traffic/">our blog post</a>!</p></li>
-	            <li><p>I am grateful to receive a 2024 <a href="https://research.google/programs-and-events/research-scholar-program/recipients/?filtertab=2024">Google Research Scholar Award in Security</a></p></li>
-                    <li><p>New paper on the <a href="https://arxiv.org/abs/2202.09727">fair exposure problem</a> under homophily was presented at AAAI'23 by Jakob Schoeffer.</p></li>
-              </div>
 
             <h2>Research</h2>
 
@@ -104,7 +90,7 @@ layout: default
             <div class="contact-note">
               {{ site.contact_note }}
             </div>
-            
+
           </div>
           {%- endif %}
         </article>

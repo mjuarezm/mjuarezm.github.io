@@ -25,3 +25,6 @@ social: true  # includes social icons at the bottom of the page
 
 I am a <a href="https://en.wikipedia.org/wiki/Lecturer#Comparison">Lecturer</a> in Cyber Security and Privacy in the University of Edinburgh's School of Informatics. Within the school, I am a member of the Security, Privacy, and Trust group ([SecPrivTru](https://web.inf.ed.ac.uk/security-privacy)). [`Full bio`](/bio)
 
+{% if page.news %}
+{% include news.html %}
+{% endif %}
