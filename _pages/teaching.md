@@ -50,7 +50,7 @@ CSEC is the core course on computer security offered to UG3 undergraduate studen
 I supervise approx. 5 undergraduate and 5 master projects every academic year.
 </p>
 
-<h2>Invited Lectures</h2>
+<h2>Invited Lectures and Talks</h2>
 <div class="scrollable-list">
 <ul>
 
