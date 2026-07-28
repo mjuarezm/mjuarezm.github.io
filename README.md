@@ -1,3 +1,5 @@
+This website is based on the al-folio template, licensed under the MIT License. The website content (text, images, publications, etc.) is © 2026 Marc Juarez unless otherwise noted.
+
 # al-folio
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
 [core_contributors]: https://img.shields.io/badge/core_contributors-3-orange.svg 'Number of core contributors'
