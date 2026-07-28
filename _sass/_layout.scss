@@ -33,6 +33,19 @@ body.sticky-bottom-footer {
   }
 }
 
+// News
+// Bootstrap's .table-responsive defaults to width: 100%, which can't share
+// a row with the floated .profile photo: the browser pushes it below the
+// float entirely to give it that full width, leaving a gap between it and
+// the <h2> heading above it (which, being a plain block, stays in the
+// narrow column beside the photo). Let it shrink to fit next to the float
+// instead, matching how the rest of the page content wraps around it.
+.news {
+  .table-responsive {
+    width: auto;
+  }
+}
+
 // TODO: redefine content layout.
 
 
