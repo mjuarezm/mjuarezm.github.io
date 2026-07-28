@@ -5,8 +5,21 @@ title: Teaching
 description:
 nav: true
 nav_order: 3
+_styles: |
+  pre {
+    white-space: pre-line;
+    border: 0;
+    background-color: transparent;
+    color: black;
+    font-family: sans-serif;
+  }
+
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
 ---
-<link rel="stylesheet" href="teaching.css">
 <!-- <h2>Teaching</h2> -->
 <ul>
 <li>
