@@ -124,16 +124,13 @@ def strip_accents(s: str) -> str:
 
 
 def normalize_title(title: str) -> str:
-    title = re.sub(r"[{}\\]", "", title)
+    title = re.sub(r"\$[^$]*\$", " ", title)  # strip inline LaTeX math, e.g. $\Rightarrow$
+    title = re.sub(r"\\[a-zA-Z]+", " ", title)  # strip remaining LaTeX commands
+    title = re.sub(r"[{}\\]", " ", title)
     title = strip_accents(title).lower()
     title = re.sub(r"[^a-z0-9\s]", " ", title)
     title = re.sub(r"\s+", " ", title).strip()
     return title
-
-
-def clean_bibtex_value(value: str) -> str:
-    """Strip the outer braces/quotes bibtexparser leaves around raw field text."""
-    return value.strip().strip("{}").strip()
 
 
 # --------------------------------------------------------------------------
@@ -158,8 +155,18 @@ def load_existing_bib(bib_path: Path):
 
 def is_duplicate(title: str, normalized_titles: set, threshold: float) -> bool:
     candidate = normalize_title(title)
+    if not candidate:
+        return False
     for existing in normalized_titles:
+        if not existing:
+            continue
         if difflib.SequenceMatcher(None, candidate, existing).ratio() >= threshold:
+            return True
+        # Scholar's profile listing truncates long titles/venues with "...",
+        # which can drag the ratio below threshold. Treat a clean prefix
+        # match (long enough to not be a coincidence) as a duplicate too.
+        shorter, longer = (candidate, existing) if len(candidate) <= len(existing) else (existing, candidate)
+        if len(shorter) >= 12 and longer.startswith(shorter):
             return True
     return False
 
@@ -174,12 +181,25 @@ def last_name_letter(name_piece: str) -> str:
     return cleaned[:1].upper()
 
 
-def make_citation_key(author_names: list[str], year: str, existing_keys: set) -> str:
+def parse_author_names(author_names: list[str]) -> list[dict]:
     """author_names: list of 'Last, First' or 'First Last' strings, in author order."""
-    parsed = [splitname(a, strict=False) for a in author_names]
-    first_last = strip_accents(" ".join(parsed[0].get("last", [])))
+    return [splitname(a, strict_mode=False) for a in author_names]
+
+
+def format_authors_bibtex(parsed_names: list[dict]) -> str:
+    """Renders parsed names as bibtex's 'Last, First and Last, First...' convention."""
+    parts = []
+    for p in parsed_names:
+        last = " ".join(p.get("last", []))
+        first = " ".join(p.get("first", []))
+        parts.append(f"{last}, {first}" if first else last)
+    return " and ".join(parts)
+
+
+def make_citation_key(parsed_names: list[dict], year: str, existing_keys: set) -> str:
+    first_last = strip_accents(" ".join(parsed_names[0].get("last", [])))
     first_last = re.sub(r"[^A-Za-z]", "", first_last).capitalize()
-    initials = "".join(last_name_letter(" ".join(p.get("last", []))) for p in parsed[1:])
+    initials = "".join(last_name_letter(" ".join(p.get("last", []))) for p in parsed_names[1:])
     yy = str(year)[-2:]
     base_key = f"{first_last}{initials}{yy}"
 
@@ -209,6 +229,57 @@ def guess_peer_or_preprint(venue_text: str) -> tuple[str, bool]:
     return "preprint", False
 
 
+def guess_entry_type(venue_text: str) -> str:
+    lowered = (venue_text or "").lower()
+    if "arxiv" in lowered:
+        return "misc"
+    if "journal" in lowered or "transactions" in lowered:
+        return "article"
+    return "inproceedings"
+
+
+# ALL-CAPS tokens too generic to use as a venue badge on their own.
+GENERIC_ACRONYMS = {"ACM", "IEEE", "USA", "THE", "AND", "FOR", "USENIX'"}
+
+
+def guess_abbr(venue_text: str, year: str) -> Optional[str]:
+    """Looks for a standalone ALL-CAPS acronym (e.g. NDSS, CCS, USENIX) in the
+    venue text. Returns None (rather than a bad guess) if nothing plausible
+    is found - a missing badge is better than a nonsense one."""
+    if not venue_text or "…" in venue_text:  # "..." truncation marker
+        return None
+    for token in re.findall(r"\b[A-Z]{2,8}\b", venue_text):
+        if token in GENERIC_ACRONYMS:
+            continue
+        return f"{token}'{str(year)[-2:]}" if year else token
+    return None
+
+
+def enrich_venue_from_detail_page(author_pub_id: str, timeout: int = 20) -> dict:
+    """Google Scholar's profile listing truncates long venue names with an
+    ellipsis, but the citation's own detail page has the full text in a
+    labeled field (e.g. "Book"/"Journal"/"Conference"). Only called when the
+    compact citation looks truncated or missing, to limit extra requests."""
+    if requests is None or not author_pub_id or ":" not in author_pub_id:
+        return {}
+    user_id, _, citation_id = author_pub_id.partition(":")
+    url = (
+        "https://scholar.google.com/citations?view_op=view_citation&hl=en"
+        f"&user={user_id}&citation_for_view={user_id}:{citation_id}"
+    )
+    try:
+        resp = requests.get(url, timeout=timeout, headers={"User-Agent": "Mozilla/5.0"})
+    except requests.RequestException:
+        return {}
+    if resp.status_code != 200:
+        return {}
+    html = resp.text
+    labels = re.findall(r'class="gsc_oci_field">([^<]*)<', html)
+    raw_values = re.findall(r'class="gsc_oci_value">(.*?)</div>', html, re.DOTALL)
+    values = [re.sub(r"<[^>]+>", "", v).strip() for v in raw_values]
+    return dict(zip(labels, values))
+
+
 # --------------------------------------------------------------------------
 # Best-effort PDF-derived hints (code link, award mention)
 # --------------------------------------------------------------------------
@@ -216,6 +287,10 @@ def guess_peer_or_preprint(venue_text: str) -> tuple[str, bool]:
 def download_pdf(url: str, dest_dir: Path, timeout: int = 20) -> Optional[Path]:
     if requests is None or not url:
         return None
+    # arxiv.org/abs/<id> is an HTML landing page; the actual PDF is at /pdf/<id>.
+    m = re.match(r"https?://(?:www\.)?arxiv\.org/abs/(.+)", url)
+    if m:
+        url = f"https://arxiv.org/pdf/{m.group(1)}"
     dest_dir.mkdir(parents=True, exist_ok=True)
     dest_path = dest_dir / (re.sub(r"[^A-Za-z0-9]+", "_", url)[-80:] + ".pdf")
     if dest_path.exists():
@@ -285,16 +360,6 @@ def fetch_scholar_publications(user_id: str, delay: float):
         time.sleep(delay)
 
 
-def parse_scholar_bibtex(bibtex_str: str) -> Optional[dict]:
-    if not bibtex_str:
-        return None
-    parser = BibTexParser(common_strings=True)
-    db = bibtexparser.loads(bibtex_str, parser=parser)
-    if not db.entries:
-        return None
-    return db.entries[0]
-
-
 # --------------------------------------------------------------------------
 # Interactive / non-interactive field resolution
 # --------------------------------------------------------------------------
@@ -335,32 +400,34 @@ def resolve_peer_preprint(venue_text: str, interactive: bool) -> tuple[dict, lis
 
 
 def build_new_entry(scholar_pub: dict, existing_keys: set, args) -> Optional[tuple[str, str, dict, list[str]]]:
-    bib_str = None
-    try:
-        bib_str = scholarly.bibtex(scholar_pub)
-    except Exception as exc:
-        print(f"  Could not export BibTeX from Scholar for this entry: {exc}", file=sys.stderr)
-
-    parsed = parse_scholar_bibtex(bib_str) if bib_str else None
     bib_info = scholar_pub.get("bib", {})
 
-    title = clean_bibtex_value(parsed.get("title", "")) if parsed else bib_info.get("title", "")
-    year = (parsed.get("year") if parsed else None) or str(bib_info.get("pub_year", "")).strip()
-    author_field = (parsed.get("author") if parsed else None) or bib_info.get("author", "")
-    author_names = [a.strip() for a in author_field.split(" and ") if a.strip()]
-    venue = (
-        (parsed.get("booktitle") or parsed.get("journal") if parsed else None)
-        or bib_info.get("venue", "")
-        or bib_info.get("citation", "")
-    )
-    entry_type = parsed.get("ENTRYTYPE", "article") if parsed else "article"
+    title = (bib_info.get("title") or "").strip()
+    year = str(bib_info.get("pub_year", "")).strip()
+    author_field_raw = bib_info.get("author", "")
+    author_names = [a.strip() for a in author_field_raw.split(" and ") if a.strip()]
 
     if not title or not author_names or not year:
         print("  Skipping: incomplete data from Scholar for this publication (missing title/author/year).",
               file=sys.stderr)
         return None
 
-    key = make_citation_key(author_names, year, existing_keys)
+    citation = bib_info.get("citation", "") or ""
+    venue = citation
+    publisher = None
+    if "…" in citation or not citation:
+        # Scholar's compact profile listing truncates long venue names;
+        # the citation's own detail page has the full text.
+        enriched = enrich_venue_from_detail_page(scholar_pub.get("author_pub_id", ""))
+        full_venue = enriched.get("Book") or enriched.get("Journal") or enriched.get("Conference") or enriched.get("Source")
+        if full_venue:
+            venue = full_venue
+        publisher = enriched.get("Publisher")
+
+    parsed_names = parse_author_names(author_names)
+    author_field = format_authors_bibtex(parsed_names)
+    key = make_citation_key(parsed_names, year, existing_keys)
+    entry_type = guess_entry_type(venue)
     warnings: list[str] = []
 
     print(f"\n=== New paper: {title} ({year}) ===")
@@ -375,8 +442,8 @@ def build_new_entry(scholar_pub: dict, existing_keys: set, args) -> Optional[tup
         fields["booktitle"] = venue
     fields["author"] = author_field
     fields["title"] = title
-    if parsed and parsed.get("publisher"):
-        fields["publisher"] = clean_bibtex_value(parsed["publisher"])
+    if publisher:
+        fields["publisher"] = publisher
     fields["year"] = year
 
     peer_fields, peer_warnings = resolve_peer_preprint(venue, args.interactive)
@@ -384,10 +451,7 @@ def build_new_entry(scholar_pub: dict, existing_keys: set, args) -> Optional[tup
     warnings.extend(peer_warnings)
 
     # abbr: short venue badge text, e.g. "USENIX'25"
-    abbr_candidate = None
-    m = re.search(r"\b([A-Z][A-Za-z&]{1,10})\W*(?:'?(\d{2,4}))?\b", venue) if venue else None
-    if m:
-        abbr_candidate = m.group(1) + ("'" + year[-2:] if year else "")
+    abbr_candidate = guess_abbr(venue, year)
     abbr = prompt_field("abbr (venue badge)", abbr_candidate, args.interactive)
     if not abbr and not args.interactive:
         warnings.append("no venue abbreviation (abbr) guessed - badge will be blank on the site")
@@ -396,6 +460,9 @@ def build_new_entry(scholar_pub: dict, existing_keys: set, args) -> Optional[tup
 
     # PDF / code / award: try to download+scan a linked PDF for hints.
     pdf_url_candidate = scholar_pub.get("eprint_url") or scholar_pub.get("pub_url")
+    if pdf_url_candidate and "scholar.google.com" in pdf_url_candidate:
+        # A Scholar-internal search/cluster link, not an actual paper link.
+        pdf_url_candidate = None
     pdf_text = ""
     if pdf_url_candidate:
         pdf_path = download_pdf(pdf_url_candidate, args.pdf_cache_dir)
@@ -425,8 +492,6 @@ def build_new_entry(scholar_pub: dict, existing_keys: set, args) -> Optional[tup
     award_value = prompt_field("award", award_candidate, args.interactive)
     if award_value:
         fields["award"] = award_value
-    elif not args.interactive and award_candidate is None:
-        pass  # most papers have no award; don't warn about the common case
 
     return entry_type, key, fields, warnings
 
@@ -435,9 +500,12 @@ def build_new_entry(scholar_pub: dict, existing_keys: set, args) -> Optional[tup
 # Writing
 # --------------------------------------------------------------------------
 
-def format_bib_entry(entry_type: str, key: str, fields: dict) -> str:
+def format_bib_entry(entry_type: str, key: str, fields: dict, warnings: Optional[list[str]] = None) -> str:
+    lines = []
+    for w in warnings or []:
+        lines.append(f"% REVIEW: {w}")
     ordered = [k for k in FIELD_ORDER if k in fields] + [k for k in fields if k not in FIELD_ORDER]
-    lines = [f"@{entry_type}{{{key},"]
+    lines.append(f"@{entry_type}{{{key},")
     for k in ordered:
         v = fields[k]
         if not v:
@@ -506,7 +574,7 @@ def main():
         existing_keys.add(key)
         normalized_titles.add(normalize_title(title))
 
-        entry_text = format_bib_entry(entry_type, key, fields)
+        entry_text = format_bib_entry(entry_type, key, fields, warnings)
         new_entries_text.append(entry_text)
         if warnings:
             review_notes.append((key, warnings))
