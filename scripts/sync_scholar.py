@@ -7,10 +7,17 @@ by fuzzy title comparison), and appends new BibTeX entries for them.
 
 Google Scholar has no official API and actively rate-limits/blocks
 automated access. This script is meant for occasional, manual runs
-(e.g. every few weeks) - not tight loops or frequent cron jobs. If
-`scholarly` starts raising errors about blocks/CAPTCHAs, wait a while
-before retrying, or configure a proxy (see the `scholarly` docs for
-`scholarly.use_proxy(...)`).
+(e.g. every few weeks) - not tight loops or frequent cron jobs.
+
+When Scholar shows a CAPTCHA, scholarly's default response is to try to
+open a Selenium-controlled browser for you to solve it interactively -
+which just hangs forever if that window never appears (headless
+environment, no display, no chromedriver) or you're not watching for
+it. --request-timeout (default 90s) turns that silent hang into a
+clear error instead. If you hit this, wait a while before retrying -
+it usually follows a burst of requests in a short time - or use
+--proxy tor (needs `brew install tor`, more reliable) or --proxy free
+(no setup, but flaky) to reduce how often it happens.
 
 Some fields used on the site (peer, pdf, code, blog, award - see
 _layouts/bib.html and _pages/publications.md) aren't part of a normal
@@ -44,6 +51,7 @@ Setup:
 from __future__ import annotations
 
 import argparse
+import concurrent.futures
 import difflib
 import re
 import sys
@@ -113,6 +121,42 @@ FIELD_ORDER = [
     "booktitle", "journal", "author", "title", "publisher", "year",
     "abbr", "peer", "preprint", "pdf", "code", "blog", "blog2", "award", "award2",
 ]
+
+
+class ScholarTimeout(Exception):
+    """Raised when a Scholar request doesn't return within --request-timeout.
+
+    scholarly's default response to a CAPTCHA challenge is to launch a
+    Selenium-controlled browser and wait indefinitely for a human to solve
+    it there. If that browser window never appears (headless environment,
+    no display, no chromedriver) or you're not watching for it, the process
+    just hangs with no further output until killed. Wrapping calls in a
+    timeout turns that silent hang into a clear, actionable error.
+    """
+
+
+def call_with_timeout(fn, timeout: float, *args, **kwargs):
+    # Deliberately not a `with` block: ThreadPoolExecutor.__exit__ calls
+    # shutdown(wait=True), which would block right here waiting for a stuck
+    # worker to finish - defeating the entire point of this timeout. A
+    # timed-out worker is abandoned (Python threads can't be force-killed);
+    # main() force-exits the process afterward so it doesn't linger at
+    # normal interpreter shutdown, which also waits for non-daemon threads.
+    pool = concurrent.futures.ThreadPoolExecutor(max_workers=1)
+    future = pool.submit(fn, *args, **kwargs)
+    try:
+        result = future.result(timeout=timeout)
+    except concurrent.futures.TimeoutError:
+        pool.shutdown(wait=False)
+        raise ScholarTimeout(
+            f"No response after {timeout:.0f}s - Google Scholar is very likely showing a CAPTCHA "
+            "(scholarly's usual response is to try to open a browser for you to solve it, which "
+            "hangs if that window never appears). Wait a while before retrying - this often follows "
+            "a burst of requests in a short time - or configure a proxy with --proxy tor/free "
+            "(see --help)."
+        ) from None
+    pool.shutdown(wait=False)
+    return result
 
 
 # --------------------------------------------------------------------------
@@ -338,21 +382,42 @@ def find_award_mention(text: str) -> Optional[str]:
 # Scholar fetching
 # --------------------------------------------------------------------------
 
-def fetch_scholar_publications(user_id: str, delay: float):
+def configure_proxy(proxy_mode: str) -> None:
+    if proxy_mode == "none":
+        return
+    from scholarly import ProxyGenerator
+    pg = ProxyGenerator()
+    if proxy_mode == "tor":
+        print("Configuring Tor proxy (requires the `tor` binary installed, e.g. `brew install tor`) ...")
+        ok = pg.Tor_Internal()
+    elif proxy_mode == "free":
+        print("Configuring free proxy rotation (unreliable, but no setup required) ...")
+        ok = pg.FreeProxies()
+    else:
+        raise ValueError(f"Unknown proxy mode: {proxy_mode}")
+    if not ok:
+        print(f"Warning: could not set up '{proxy_mode}' proxy, continuing without one.", file=sys.stderr)
+        return
+    scholarly.use_proxy(pg)
+
+
+def fetch_scholar_publications(user_id: str, delay: float, request_timeout: float):
     if scholarly is None:
         print("Missing dependency: scholarly. Run: pip install -r scripts/requirements.txt", file=sys.stderr)
         sys.exit(1)
 
     print(f"Fetching Scholar profile for user_id={user_id} ...")
-    author = scholarly.search_author_id(user_id)
-    author = scholarly.fill(author, sections=["publications"])
+    author = call_with_timeout(scholarly.search_author_id, request_timeout, user_id)
+    author = call_with_timeout(scholarly.fill, request_timeout, author, sections=["publications"])
     total = len(author.get("publications", []))
     print(f"Found {total} publications listed on Scholar. Fetching details "
           f"(this can take a while and may be rate-limited by Scholar) ...")
 
     for i, pub_stub in enumerate(author["publications"], start=1):
         try:
-            pub = scholarly.fill(pub_stub)
+            pub = call_with_timeout(scholarly.fill, request_timeout, pub_stub)
+        except ScholarTimeout:
+            raise
         except Exception as exc:  # scholarly's exceptions vary by version
             print(f"  [{i}/{total}] Failed to fetch publication details, skipping: {exc}", file=sys.stderr)
             continue
@@ -534,6 +599,13 @@ def main():
     parser.add_argument("--threshold", type=float, default=0.87,
                          help="Fuzzy title-match ratio above which a Scholar entry is considered a duplicate")
     parser.add_argument("--delay", type=float, default=4.0, help="Seconds to wait between Scholar requests")
+    parser.add_argument("--request-timeout", type=float, default=90.0,
+                         help="Seconds to wait for a single Scholar request before giving up "
+                              "(protects against scholarly hanging on an unsolved CAPTCHA)")
+    parser.add_argument("--proxy", choices=["none", "free", "tor"], default="none",
+                         help="Route Scholar requests through a proxy to reduce CAPTCHA/rate-limit blocks. "
+                              "'tor' requires the `tor` binary installed (e.g. `brew install tor`) and is the "
+                              "more reliable free option; 'free' rotates public proxies and is often flaky.")
     parser.add_argument("--limit", type=int, default=None, help="Only process this many new papers")
     parser.add_argument("--dry-run", action="store_true", help="Don't write to papers.bib, just show what would happen")
     interactive_group = parser.add_mutually_exclusive_group()
@@ -553,6 +625,8 @@ def main():
         print("Note: pdfplumber not installed - pdf/code/award hints from downloaded PDFs will be skipped.",
               file=sys.stderr)
 
+    configure_proxy(args.proxy)
+
     normalized_titles, existing_keys = load_existing_bib(args.bib)
     print(f"Loaded {len(normalized_titles)} existing entries from {args.bib}")
 
@@ -560,28 +634,42 @@ def main():
     review_notes = []
     processed = 0
 
-    for pub in fetch_scholar_publications(args.user_id, args.delay):
-        title = pub.get("bib", {}).get("title", "")
-        if not title:
-            continue
-        if is_duplicate(title, normalized_titles, args.threshold):
-            continue
+    try:
+        for pub in fetch_scholar_publications(args.user_id, args.delay, args.request_timeout):
+            title = pub.get("bib", {}).get("title", "")
+            if not title:
+                continue
+            if is_duplicate(title, normalized_titles, args.threshold):
+                continue
 
-        result = build_new_entry(pub, existing_keys, args)
-        if result is None:
-            continue
-        entry_type, key, fields, warnings = result
-        existing_keys.add(key)
-        normalized_titles.add(normalize_title(title))
+            result = build_new_entry(pub, existing_keys, args)
+            if result is None:
+                continue
+            entry_type, key, fields, warnings = result
+            existing_keys.add(key)
+            normalized_titles.add(normalize_title(title))
 
-        entry_text = format_bib_entry(entry_type, key, fields, warnings)
-        new_entries_text.append(entry_text)
-        if warnings:
-            review_notes.append((key, warnings))
+            entry_text = format_bib_entry(entry_type, key, fields, warnings)
+            new_entries_text.append(entry_text)
+            if warnings:
+                review_notes.append((key, warnings))
 
-        processed += 1
-        if args.limit and processed >= args.limit:
-            break
+            processed += 1
+            if args.limit and processed >= args.limit:
+                break
+    except ScholarTimeout as exc:
+        print(f"\n{exc}", file=sys.stderr)
+        if new_entries_text:
+            print(f"\n{len(new_entries_text)} entries were found before the timeout; "
+                  f"{'would have been' if args.dry_run else 'writing them now, then'} "
+                  "stopping here.")
+            if not args.dry_run:
+                append_entries(args.bib, new_entries_text)
+        # A stuck scholarly/Selenium call may leave a background thread that
+        # can't be cancelled; a normal exit would hang waiting for it to
+        # finish. Terminate immediately instead of returning normally.
+        import os
+        os._exit(1)
 
     if not new_entries_text:
         print("\nNo new papers found - papers.bib is already in sync with Scholar.")
