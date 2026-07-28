@@ -55,8 +55,7 @@ I supervise approx. 5 undergraduate and 5 master projects every academic year.
 <li>
 <p>
 <pre>
-<strong>Panel on AI Governance
-</strong>
+<strong>Panel on AI Governance</strong>
 Fast Forward 2026: AI Futures Beyond the Hype
 University of Edinburgh
 Edinburgh, UK
@@ -68,8 +67,7 @@ May, 2026
 <li>
 <p>
 <pre>
-<strong>On the Security of Technical Approaches for AI Image Provenance
-</strong>
+<strong>On the Security of Technical Approaches for AI Image Provenance</strong>
 Centre for Technomorals Futures
 University of Edinburgh
 Edinburgh, UK
@@ -81,8 +79,7 @@ May, 2026
 <li>
 <p>
 <pre>
-<strong>A Crack in the Bark: Leveraging Public Knowledge to Remove Tree-Ring Watermarks
-</strong>
+<strong>A Crack in the Bark: Leveraging Public Knowledge to Remove Tree-Ring Watermarks</strong>
 Internal seminar
 University of Glasgow
 Glasgow, UK
@@ -94,8 +91,7 @@ December, 2025
 <li>
 <p>
 <pre>
-<strong>Traffic Analysis Attacks and Defenses
-</strong>
+<strong>Traffic Analysis Attacks and Defenses</strong>
 Colloquium
 KAIST
 Daejeon, South Korea
@@ -107,8 +103,7 @@ November, 2025
 <li>
 <p>
 <pre>
-<strong>A Crack in the Bark: Leveraging Public Knowledge to Remove Tree-Ring Watermarks
-</strong>
+<strong>A Crack in the Bark: Leveraging Public Knowledge to Remove Tree-Ring Watermarks</strong>
 Internal seminar
 Ewha Womans University
 Seoul, South Korea
@@ -120,8 +115,7 @@ November, 2025
 <li>
 <p>
 <pre>
-<strong>Privacy and security with ML: a research overview
-</strong>
+<strong>Privacy and security with ML: a research overview</strong>
 Internal seminar
 UPC
 Barcelona, Spain
