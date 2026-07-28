@@ -1,4 +1,8 @@
-scholarly>=1.7.11
+scholarly[tor]>=1.7.11
+# scholarly 1.7.11 calls httpx.Client(proxies=...), a parameter httpx removed
+# in 0.28 (renamed to proxy/mounts) - pin below that or --proxy free/tor
+# fail with "TypeError: __init__() got an unexpected keyword argument 'proxies'".
+httpx<0.28
 bibtexparser>=1.4.0
 pyparsing>=3.0.9
 requests>=2.31.0

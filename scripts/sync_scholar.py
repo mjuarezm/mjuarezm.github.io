@@ -387,14 +387,28 @@ def configure_proxy(proxy_mode: str) -> None:
         return
     from scholarly import ProxyGenerator
     pg = ProxyGenerator()
-    if proxy_mode == "tor":
-        print("Configuring Tor proxy (requires the `tor` binary installed, e.g. `brew install tor`) ...")
-        ok = pg.Tor_Internal()
-    elif proxy_mode == "free":
-        print("Configuring free proxy rotation (unreliable, but no setup required) ...")
-        ok = pg.FreeProxies()
-    else:
-        raise ValueError(f"Unknown proxy mode: {proxy_mode}")
+    try:
+        if proxy_mode == "tor":
+            # scholarly's own Tor support is deprecated since 1.5 and not
+            # actively tested by its maintainers - free is the better-tested
+            # option. Tor_Internal() requires an explicit tor_cmd (it silently
+            # no-ops without ever launching Tor if left as its None default,
+            # instead of raising), and raises OSError if the binary isn't on
+            # PATH. It also returns a dict (unlike FreeProxies()'s plain
+            # bool), so a truthy check on the dict itself would never catch
+            # failure here.
+            print("Configuring Tor proxy (requires the `tor` binary installed, e.g. `brew install tor`; "
+                  "note: scholarly's Tor support is deprecated upstream and not actively tested) ...")
+            result = pg.Tor_Internal(tor_cmd="tor")
+            ok = bool(result.get("proxy_works")) if isinstance(result, dict) else bool(result)
+        elif proxy_mode == "free":
+            print("Configuring free proxy rotation (unreliable, but no setup required) ...")
+            ok = pg.FreeProxies()
+        else:
+            raise ValueError(f"Unknown proxy mode: {proxy_mode}")
+    except Exception as exc:
+        print(f"Warning: could not set up '{proxy_mode}' proxy ({exc}), continuing without one.", file=sys.stderr)
+        return
     if not ok:
         print(f"Warning: could not set up '{proxy_mode}' proxy, continuing without one.", file=sys.stderr)
         return
