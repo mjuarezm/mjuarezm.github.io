@@ -43,6 +43,7 @@ CSEC is the core course on computer security offered to UG3 undergraduate studen
 </pre>
 </p>
 </li>
+</ul>
 
 <h2>Student Supervision</h2>
 <p>
@@ -50,6 +51,7 @@ I supervise approx. 5 undergraduate and 5 master projects every academic year.
 </p>
 
 <h2>Invited Lectures</h2>
+<div class="scrollable-list">
 <ul>
 
 <li>
@@ -138,8 +140,6 @@ September, 2024
 
 <li>
 <p>
-<li>
-<p>
 <pre>
 <strong>Applications of Machine Learning to Traffic Analysis</strong>
 Ewha Womans University
@@ -148,14 +148,12 @@ May, 2024
 </pre>
 </p>
 </li>
-<li>
-<p>
 
 <li>
 <p>
 <pre>
 <strong>Machine Learning for Traffic Analysis</strong>
-SIGINT Pwned5 
+SIGINT Pwned5
 The Nucleus Building
 University of Edinburgh
 Edinburgh, UK
@@ -179,7 +177,7 @@ Oct, 2023
 <p>
 <pre>
 <strong>Machine Learning for Traffic Analysis</strong>
-Summer School on Security and Privacy in the Age of AI 
+Summer School on Security and Privacy in the Age of AI 
 Dept of Computer Science - DistriNet
 KU Leuven
 Belgium, UK
@@ -281,6 +279,7 @@ Leuven, Belgium
 Oct, 2018
 </pre>
 </p>
+</li>
 
 <li>
 <p>
@@ -304,3 +303,5 @@ Mar, 2016
 </p>
 </li>
 
+</ul>
+</div>

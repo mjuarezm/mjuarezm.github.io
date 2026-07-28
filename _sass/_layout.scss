@@ -49,6 +49,15 @@ body.sticky-bottom-footer {
   }
 }
 
+// Scrollable list
+// Generic wrapper for long lists (e.g. the teaching page's invited
+// lectures) that should be capped to a fixed height with a scrollbar,
+// the same way the news box is, instead of running the whole page long.
+.scrollable-list {
+  max-height: 24rem;
+  overflow-y: auto;
+}
+
 // TODO: redefine content layout.
 
 
