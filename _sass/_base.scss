@@ -138,6 +138,17 @@ blockquote {
   }
 }
 
+// Below 576px, .profile stays full-width (see above), so .image's 70%
+// is 70% of the whole screen. Shrink it down to a smaller thumbnail size
+// on mobile only; desktop's 30%-wide .profile is unaffected.
+@media (max-width: 575.98px) {
+  .profile {
+    .image {
+      width: 40%;
+    }
+  }
+}
+
 .post-description {
   margin-bottom: 2rem;
   font-size: 0.875rem;
