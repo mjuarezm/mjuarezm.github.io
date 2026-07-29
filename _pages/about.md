@@ -34,9 +34,9 @@ My research topics and recent works:
 
 <div class="research-topics" markdown="1">
 - **ML-Based Traffic Analysis**: Development and evaluation of traffic analysis defenses for network security applications, particularly in the context of web traffic.
-  - [Oldenburg et al. "MixMatch: Flow Matching for Mixnet Traffic." PETS, 2024.](https://www.research.ed.ac.uk/files/454465144/OldenburgEtalPoPETs2024MixMatchFlowMatching.pdf)
+  - [Oldenburg et al. "Shift Your Shape: Correlating and Defending Mixnet Flows Based on Their Shapes." IEEE TDSC, 2025.](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=11193772)
 - **Security and Privacy of ML Systems**: Auditing privacy and security properties of ML models and developing techniques for secure and private deployment of ML systems.
-  - [Lin and Juarez. "A Crack in the Bark: Leveraging Public Knowledge to Remove Tree-Ring Watermarks," to appear in USENIX Security, 2025.](http://arxiv.org/abs/2506.10502)
+  - [Yao and Juarez. "Smudged Fingerprints: A Systematic Evaluation of the Robustness of AI Image Fingerprints." IEEE SaTML, 2026.](https://arxiv.org/pdf/2512.11771)
 - **Privacy and Fairness in ML Systems**: Addressing privacy challenges in detecting and mitigating bias in ML models.
   - [Yao and Juarez. "SoK: What Makes Private Learning Unfair?", IEEE SaTML, 2025.](https://arxiv.org/abs/2501.14414)
 </div>
