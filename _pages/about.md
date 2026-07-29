@@ -52,4 +52,6 @@ See the complete list of [`publications`](/publications).
 - Molham Khoja (second supervisor)
 - Bengü Gülay (second supervisor)
 
+**We're hiring:** [KTP Associate](https://elxw.fa.em3.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/14337) position now open.
+
 I am always interested in hiring talented PhD students whose research interests overlap with mine. Please attach a short research proposal when contacting me.
