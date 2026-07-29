@@ -41,7 +41,8 @@ Before joining the University of Edinburgh, Marc was a Postdoctoral Scholar in t
 <div class="timeline-content">
 <h6 class="timeline-title">PhD in Engineering Science: Electrical Engineering</h6>
 <h6 class="timeline-org">KU Leuven</h6>
-<p class="timeline-description">Advisor: <a href="https://homes.esat.kuleuven.be/~cdiaz/">Claudia Diaz</a>. Dissertation: "Design and Evaluation of Website Fingerprinting Techniques."</p>
+<p class="timeline-description">Advisor: <a href="https://homes.esat.kuleuven.be/~cdiaz/">Claudia Diaz</a>.</p>
+<p>Dissertation: <a href="https://mjuarezm.github.io/assets/pdf/phd-thesis.pdf">"Design and Evaluation of Website Fingerprinting Techniques."</a></p>
 </div>
 </div>
 
