@@ -31,17 +31,29 @@ Before joining the University of Edinburgh, Marc was a Postdoctoral Scholar in t
 
 ## Education
 
-<div class="info-cards">
+<div class="card timeline mt-3 p-4">
 
-<div class="card mt-3 p-3">
-<h3 class="card-title">PhD in Engineering Science: Electrical Engineering</h3>
-<p class="item-meta">2019 &middot; KU Leuven</p>
-<p>Advisor: <a href="https://homes.esat.kuleuven.be/~cdiaz/">Claudia Diaz</a>. Dissertation: "Design and Evaluation of Website Fingerprinting Techniques."</p>
+<div class="timeline-entry">
+<div class="timeline-meta">
+<span class="badge badge-pill">2019</span>
+<div class="timeline-location"><i class="fas fa-map-marker-alt"></i> Leuven, Belgium</div>
+</div>
+<div class="timeline-content">
+<h6 class="timeline-title">PhD in Engineering Science: Electrical Engineering</h6>
+<h6 class="timeline-org">KU Leuven</h6>
+<p class="timeline-description">Advisor: <a href="https://homes.esat.kuleuven.be/~cdiaz/">Claudia Diaz</a>. Dissertation: "Design and Evaluation of Website Fingerprinting Techniques."</p>
+</div>
 </div>
 
-<div class="card mt-3 p-3">
-<h3 class="card-title">Double Degree in Mathematics and Computer Engineering</h3>
-<p class="item-meta">2013 &middot; Universitat Autònoma de Barcelona</p>
+<div class="timeline-entry">
+<div class="timeline-meta">
+<span class="badge badge-pill">2013</span>
+<div class="timeline-location"><i class="fas fa-map-marker-alt"></i> Barcelona, Spain</div>
+</div>
+<div class="timeline-content">
+<h6 class="timeline-title">Double Degree in Mathematics and Computer Engineering</h6>
+<h6 class="timeline-org">Universitat Autònoma de Barcelona</h6>
+</div>
 </div>
 
 </div>
@@ -49,21 +61,39 @@ Before joining the University of Edinburgh, Marc was a Postdoctoral Scholar in t
 ## Appointments
 
 <!-- Dates below are best-effort estimates from context elsewhere on the site (teaching/invited-lecture history) - please correct any that are off. -->
-<div class="info-cards">
+<div class="card timeline mt-3 p-4">
 
-<div class="card mt-3 p-3">
-<h3 class="card-title">Lecturer in Cyber Security and Privacy</h3>
-<p class="item-meta">2022&ndash;Present &middot; School of Informatics, University of Edinburgh</p>
+<div class="timeline-entry">
+<div class="timeline-meta">
+<span class="badge badge-pill">2022&ndash;Present</span>
+<div class="timeline-location"><i class="fas fa-map-marker-alt"></i> Edinburgh, UK</div>
+</div>
+<div class="timeline-content">
+<h6 class="timeline-title">Lecturer in Cyber Security and Privacy</h6>
+<h6 class="timeline-org">School of Informatics, University of Edinburgh</h6>
+</div>
 </div>
 
-<div class="card mt-3 p-3">
-<h3 class="card-title">Postdoctoral Scholar</h3>
-<p class="item-meta">2019&ndash;2022 &middot; Computer Science Department, University of Southern California</p>
+<div class="timeline-entry">
+<div class="timeline-meta">
+<span class="badge badge-pill">2019&ndash;2022</span>
+<div class="timeline-location"><i class="fas fa-map-marker-alt"></i> Los Angeles, USA</div>
+</div>
+<div class="timeline-content">
+<h6 class="timeline-title">Postdoctoral Scholar</h6>
+<h6 class="timeline-org">Computer Science Department, University of Southern California</h6>
+</div>
 </div>
 
-<div class="card mt-3 p-3">
-<h3 class="card-title">PhD Researcher</h3>
-<p class="item-meta">2013&ndash;2019 &middot; COSIC, KU Leuven</p>
+<div class="timeline-entry">
+<div class="timeline-meta">
+<span class="badge badge-pill">2013&ndash;2019</span>
+<div class="timeline-location"><i class="fas fa-map-marker-alt"></i> Leuven, Belgium</div>
+</div>
+<div class="timeline-content">
+<h6 class="timeline-title">PhD Researcher</h6>
+<h6 class="timeline-org">COSIC, KU Leuven</h6>
+</div>
 </div>
 
 </div>

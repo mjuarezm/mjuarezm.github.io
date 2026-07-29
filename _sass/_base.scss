@@ -362,6 +362,70 @@ footer.sticky-bottom {
   }
 }
 
+// Timeline
+// A single bordered card holding multiple dated entries (bio page's
+// Education/Appointments), each with a pill-shaped date badge and
+// location on the left, title/org/description on the right - styled
+// after the CV feature's own presentation of the same kind of data.
+.timeline {
+  background-color: var(--global-card-bg-color);
+  border: 1px solid var(--global-divider-color);
+}
+
+.timeline-entry {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--global-divider-color);
+
+  &:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+  &:first-child {
+    padding-top: 0;
+  }
+}
+
+.timeline-meta {
+  flex: 0 0 140px;
+
+  .badge {
+    background-color: var(--global-theme-color);
+    color: var(--global-card-bg-color);
+    font-weight: 600;
+  }
+}
+
+.timeline-location {
+  margin-top: 0.4rem;
+  font-size: 0.8rem;
+  color: var(--global-text-color-light);
+
+  i {
+    color: var(--global-theme-color);
+    margin-right: 0.25rem;
+  }
+}
+
+.timeline-content {
+  flex: 1 1 300px;
+
+  .timeline-title {
+    font-weight: 700;
+    margin-bottom: 0.15rem;
+  }
+  .timeline-org {
+    font-weight: 400;
+    color: var(--global-text-color-light);
+    margin-bottom: 0.4rem;
+  }
+  .timeline-description {
+    margin-bottom: 0;
+  }
+}
+
 // Repositories
 
 @media (min-width: 768px) {
