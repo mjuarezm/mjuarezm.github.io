@@ -248,13 +248,12 @@ scholar:
   sort_by: year
   order: descending
 
-  # Fields to leave out of the "Bib" popup's raw BibTeX display: these are
-  # purely internal plumbing with no citation value (bibtex_show/search
-  # are site-only toggles, mlsecurity/device_fp are ad-hoc topic tags).
-  # peer/preprint/book/poster/thesis are kept - they're the same kind of
-  # site-routing flag, but unlike the above they convey real information
-  # about the work (peer-reviewed vs preprint, poster vs full paper, etc).
-  bibtex_skip_fields: [abstract, month_numeric, bibtex_show, search, mlsecurity, device_fp]
+  # Fields to leave out of the "Bib" popup's raw BibTeX display, so it
+  # shows a clean, portable citation with only fields any reference
+  # manager would recognize - nothing specific to how this site uses
+  # the entry (venue badge, links, awards, or which page section it
+  # routes to).
+  bibtex_skip_fields: [abstract, month_numeric, abbr, peer, preprint, pdf, code, award, award2, blog, blog2, website, supp, html, poster, book, thesis, bibtex_show, search, mlsecurity, device_fp]
 
 # Maximum number of authors to be shown, other authors will be visible on hover, leave blank to show all authors
 max_author_limit: 3
