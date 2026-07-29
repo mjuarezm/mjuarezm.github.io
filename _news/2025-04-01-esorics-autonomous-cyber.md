@@ -4,4 +4,4 @@ date: 2025-04-01
 inline: true
 ---
 
-New paper to appear in the proceedings of Autonomous Cyber (ESORICS). This work is based on Melanie Meijer's <a href="https://drive.google.com/file/d/1Ql2ugIz5G3IZD3VzLcqZRe1LkI9M8ZoC/view">MSc dissertation</a>.
+New paper, "<a href="https://link.springer.com/chapter/10.1007/978-3-032-16165-9_2">Adversarial Evasion Against Autonomous Cyber Defence Agents</a>," to appear in the proceedings of Autonomous Cyber (ESORICS). This work is based on Melanie Meijer's <a href="https://drive.google.com/file/d/1Ql2ugIz5G3IZD3VzLcqZRe1LkI9M8ZoC/view">MSc dissertation</a>.
