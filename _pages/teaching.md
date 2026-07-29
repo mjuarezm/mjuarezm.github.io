@@ -19,6 +19,10 @@ _styles: |
     margin: 0;
     padding: 0;
   }
+
+  h2 {
+    margin-top: 2.5rem;
+  }
 ---
 <div class="teaching-courses">
 
