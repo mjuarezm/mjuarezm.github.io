@@ -343,6 +343,22 @@ footer.sticky-bottom {
   }
 }
 
+// Teaching
+
+.teaching-courses {
+  .card {
+    background-color: var(--global-card-bg-color);
+    border: 1px solid var(--global-divider-color);
+  }
+  .card-title {
+    color: var(--global-theme-color);
+  }
+  .course-meta {
+    color: var(--global-text-color-light);
+    font-size: 0.9rem;
+  }
+}
+
 // Repositories
 
 @media (min-width: 768px) {
