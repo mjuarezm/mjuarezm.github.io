@@ -27,10 +27,10 @@ Before joining the University of Edinburgh, Marc was a Postdoctoral Scholar in t
     <li>Double degree in Mathematics and Computer Engineering, 2013. Universitat Autònoma de Barcelona</li>
 </ul>
 
-#### Experience
+#### Appointments
 <!-- Dates below are best-effort estimates from context elsewhere on the site (teaching/invited-lecture history) - please correct any that are off. -->
 <ul>
     <li>Lecturer in Cyber Security and Privacy, School of Informatics, University of Edinburgh, 2022&ndash;Present</li>
-    <li>Postdoctoral Scholar, Computer Science Department, University of Southern California (USC), 2019&ndash;2022</li>
+    <li>Postdoctoral Scholar, Computer Science Department, University of Southern California, 2019&ndash;2022</li>
     <li>PhD Researcher, COSIC, KU Leuven, 2013&ndash;2019</li>
 </ul>
