@@ -37,6 +37,14 @@ by inspecting their actual authorships/institutions. New entries whose
 authorships don't overlap with any institution in KNOWN_INSTITUTION_IDS
 get flagged for review rather than silently trusted or silently dropped.
 
+In interactive mode, every candidate paper is shown (title, authors,
+venue, key, and any warnings) with an explicit Include/exclude prompt
+before anything else is asked, so a false-merge or already-tracked
+paper can be rejected in one step instead of clicking through every
+field first. In --non-interactive mode there's no one to ask, so every
+non-skipped-type candidate is added with its warnings as `% REVIEW:`
+comments for you to resolve afterward.
+
 Usage:
     python3 scripts/sync_openalex.py                     # interactive
     python3 scripts/sync_openalex.py --dry-run            # preview only
@@ -98,10 +106,6 @@ DEFAULT_AUTHOR_ID = "A5000247697"
 KNOWN_INSTITUTION_IDS = {
     "I98677209": "University of Edinburgh",
     "I99464096": "KU Leuven",
-    "I1174212": "University of Southern California",
-    "I39327780": "iMinds",
-    "I4210114974": "IMEC",
-    "I196972281": "Imec the Netherlands",
 }
 
 # OpenAlex work types with no place in a publications bibliography.
@@ -516,6 +520,14 @@ def build_new_entry(work: dict, existing_keys: set, args) -> Optional[tuple[str,
     print(f"  Authors: {author_field}")
     print(f"  Venue:   {venue_info['venue']}")
     print(f"  Key:     {key}")
+    for w in warnings:
+        print(f"  WARNING: {w}")
+
+    if args.interactive:
+        resp = input("  Include this paper? [Y/n]: ").strip().lower()
+        if resp.startswith("n"):
+            print("  Skipped.")
+            return None
 
     fields: dict = {}
     if entry_type == "article":
@@ -643,30 +655,34 @@ def main():
     review_notes = []
     processed = 0
 
-    for work in works:
-        if work.get("type") in SKIP_TYPES:
-            continue
-        title = work.get("title") or work.get("display_name") or ""
-        if not title:
-            continue
-        if is_duplicate(title, normalized_titles, args.threshold):
-            continue
+    try:
+        for work in works:
+            if work.get("type") in SKIP_TYPES:
+                continue
+            title = work.get("title") or work.get("display_name") or ""
+            if not title:
+                continue
+            if is_duplicate(title, normalized_titles, args.threshold):
+                continue
 
-        result = build_new_entry(work, existing_keys, args)
-        if result is None:
-            continue
-        entry_type, key, fields, warnings = result
-        existing_keys.add(key)
-        normalized_titles.add(normalize_title(title))
+            result = build_new_entry(work, existing_keys, args)
+            if result is None:
+                continue
+            entry_type, key, fields, warnings = result
+            existing_keys.add(key)
+            normalized_titles.add(normalize_title(title))
 
-        entry_text = format_bib_entry(entry_type, key, fields, warnings)
-        new_entries_text.append(entry_text)
-        if warnings:
-            review_notes.append((key, warnings))
+            entry_text = format_bib_entry(entry_type, key, fields, warnings)
+            new_entries_text.append(entry_text)
+            if warnings:
+                review_notes.append((key, warnings))
 
-        processed += 1
-        if args.limit and processed >= args.limit:
-            break
+            processed += 1
+            if args.limit and processed >= args.limit:
+                break
+    except (EOFError, KeyboardInterrupt):
+        print(f"\n\nStopped early ({len(new_entries_text)} paper(s) accepted so far will still be "
+              f"{'previewed' if args.dry_run else 'written'}).")
 
     if not new_entries_text:
         print("\nNo new papers found - papers.bib is already in sync with OpenAlex.")
