@@ -343,9 +343,11 @@ footer.sticky-bottom {
   }
 }
 
-// Teaching
-
-.teaching-courses {
+// Info cards
+// Generic bordered-card treatment for itemized info (teaching page's
+// courses, bio page's education/appointments): theme-colored title,
+// a small metadata line, and a description paragraph.
+.info-cards {
   margin-bottom: 1rem;
   .card {
     background-color: var(--global-card-bg-color);
@@ -354,7 +356,7 @@ footer.sticky-bottom {
   .card-title {
     color: var(--global-theme-color);
   }
-  .course-meta {
+  .item-meta {
     color: var(--global-text-color-light);
     font-size: 0.9rem;
   }
