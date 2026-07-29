@@ -16,7 +16,7 @@ nav_order: 2
 <h3>Pre-prints</h3>
   {% bibliography -f papers -q @*[preprint=true]* %}
 
-<h3>Book chapters</h3>
+<h3>Book Chapters</h3>
   {% bibliography -f papers -q @*[book=true]* %}
 
 <h3>Posters</h3>
