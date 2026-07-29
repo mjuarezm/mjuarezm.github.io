@@ -36,10 +36,6 @@ _styles: |
 
 </div>
 
-<h2>Student Supervision</h2>
-<p>
-I supervise approx. 5 undergraduate and 5 master projects every academic year.
-</p>
 
 <h2>Invited Lectures and Talks</h2>
 <div class="scrollable-list">
@@ -296,3 +292,9 @@ Mar, 2016
 
 </ul>
 </div>
+
+
+<h2>Student Supervision</h2>
+<p>
+I supervise approx. 5 undergraduate and 5 master projects every academic year.
+</p>
