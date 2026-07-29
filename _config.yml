@@ -241,6 +241,13 @@ scholar:
 
   query: "@*"
 
+  # Sort the publications list in reversed chronological order (matches
+  # publications.md's own description); jekyll-scholar defaults to no
+  # sorting at all (file order), which is meaningless here since papers.bib
+  # isn't kept in date order.
+  sort_by: year
+  order: descending
+
 # Maximum number of authors to be shown, other authors will be visible on hover, leave blank to show all authors
 max_author_limit: 3
 
