@@ -55,4 +55,4 @@ See the complete list of [`publications`](/publications).
 I am always interested in hiring talented PhD students whose research interests overlap with mine. Please attach a short research proposal when contacting me.
 
 **Open positions**
-- [Research Assistant]() in a collaboration with Amazon Research. Ad coming up soon.
+- [Research Assistant]() for a collaboration with Amazon Research studying security and fairness in AI-assisted hiring. The post is currently open to internal applicants and will be advertised publicly soon.
