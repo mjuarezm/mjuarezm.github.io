@@ -55,4 +55,4 @@ See the complete list of [`publications`](/publications).
 I am always interested in hiring talented PhD students whose research interests overlap with mine. Please attach a short research proposal when contacting me.
 
 **Open positions**
-- [Research Assistant](https://edin.ac/4gv0oCZ) for a collaboration with Amazon Research studying security and fairness in AI-assisted hiring. The post is currently open to internal applicants only and will be open for external applications soon.
+- [Research Assistant](https://elxw.fa.em3.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/14767) for a collaboration with Amazon Research studying security and fairness in AI-assisted hiring.
