@@ -67,6 +67,18 @@ I supervise approx. 5 undergraduate and 5 master projects every academic year.
 <li>
 <p>
 <pre>
+<strong>Technical Approaches to Image Provenance</strong>
+Summer School on Security and Privacy in the Age of AI
+KU Leuven
+Leuven, Belgium
+September, 2026
+</pre>
+</p>
+</li>
+
+<li>
+<p>
+<pre>
 <strong>Panel on AI Governance</strong>
 Fast Forward 2026: AI Futures Beyond the Hype
 University of Edinburgh
