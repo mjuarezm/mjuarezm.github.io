@@ -48,8 +48,8 @@ See the complete list of [`publications`](/publications).
 - [Kai Yao](https://kaikaiyao.github.io)
 - [Samaneh Mohammadi](https://samanemohammadi.github.io/)
 - Lisa Lavrentieva (co-supervised with Michio Honda)
+- Bengü Gülay (co-supervised with Zee Talat)
 - Tobias Cheung (second supervisor)
 - Molham Khoja (second supervisor)
-- Bengü Gülay (second supervisor)
 
 I am always interested in hiring talented PhD students whose research interests overlap with mine. Please attach a short research proposal when contacting me.
