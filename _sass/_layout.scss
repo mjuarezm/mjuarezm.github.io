@@ -56,6 +56,11 @@ body.sticky-bottom-footer {
 .scrollable-list {
   max-height: 24rem;
   overflow-y: auto;
+
+  ul {
+    list-style: none;
+    padding-left: 0;
+  }
 }
 
 // Research topics
