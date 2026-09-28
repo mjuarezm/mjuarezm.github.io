@@ -38,4 +38,19 @@ _styles: |
 <p>CSEC is the core course on computer security offered to UG3 undergraduate students and students of the Cyber Security, Privacy, and Trust MSc. The goal of the course is to introduce students to the fundamental security concepts and offer them working knowledge of threats and countermeasures.</p>
 </div>
 
+<h2>Student Supervision</h2>
+<p>
+I supervise approx. 5 undergraduate and 5 master projects every academic year.
+</p>
+
+<div class="info-cards">
+
+<div class="card mt-3 p-3">
+<h3 class="card-title">MSc Cluster Project on LLM Security</h3>
+<p class="item-meta">2026&ndash;Present &middot; Lecturer and Course Organizer &middot; University of Edinburgh</p>
+<p>Together with <a href="https://www.danielwoods.info/">Daniel Woods</a>, I will supervise a large group of MSc students working on benchmarking LLMs for safety and security.</p>
+</div>
+
+</div>
+
 </div>
