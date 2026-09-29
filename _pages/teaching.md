@@ -46,7 +46,7 @@ I supervise approx. 5 undergraduate and 5 master projects every academic year.
 <div class="info-cards">
 
 <div class="card mt-3 p-3">
-<h3 class="card-title">MSc Cluster Project on LLM Security</h3>
+<h3 class="card-title">MSc Cluster Project on LLM Safety</h3>
 <p class="item-meta">2026&ndash;Present &middot; Lecturer and Course Organizer &middot; University of Edinburgh</p>
 <p>Together with <a href="https://www.danielwoods.info/">Daniel Woods</a>, I will supervise a large group of MSc students working on benchmarking LLMs for safety and security.</p>
 </div>
