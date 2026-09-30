@@ -61,6 +61,11 @@ body.sticky-bottom-footer {
     list-style: none;
     padding-left: 0;
   }
+
+  pre {
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+  }
 }
 
 // Research topics
