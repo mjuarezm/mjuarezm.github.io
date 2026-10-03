@@ -43,7 +43,7 @@ My research topics and recent works:
 
 See the complete list of [`publications`](/publications).
 
-## Students
+## Team
 
 - [Kai Yao](https://kaikaiyao.github.io)
 - [Samaneh Mohammadi](https://samanemohammadi.github.io/)
