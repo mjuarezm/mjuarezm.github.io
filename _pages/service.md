@@ -11,7 +11,7 @@ nav_order: 4
 
 In recent years, I have served on the program committees of ACM CCS, USENIX Security, SaTML, and PETS. I am currently serving my second year as Vice-Chair of PETS.
 
-<h2>Talks</h2>
+<h2>Invited lectures and scholarly talks</h2>
 <div class="scrollable-list">
 <ul>
 

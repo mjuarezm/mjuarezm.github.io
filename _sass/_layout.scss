@@ -54,7 +54,7 @@ body.sticky-bottom-footer {
 // lectures) that should be capped to a fixed height with a scrollbar,
 // the same way the news box is, instead of running the whole page long.
 .scrollable-list {
-  max-height: 24rem;
+  max-height: 48rem;
   overflow-y: auto;
 
   ul {
