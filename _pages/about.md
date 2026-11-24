@@ -39,7 +39,8 @@ My research topics and recent works:
 
 - **Privacy and Fairness in AI Systems**: Understanding how AI systems affect privacy and fairness, and developing methods to detect and address the risks.
   - [Yao and Juarez. "SoK: What Makes Private Learning Unfair?", IEEE SaTML, 2025.](https://arxiv.org/abs/2501.14414)
-  - **AI/ML for Security and Privacy**: Application of AI/ML techniques to security and privacy problems. For example, developing and evaluating defences for network traffic analysis.
+  
+- **AI/ML for Security and Privacy**: Application of AI/ML techniques to security and privacy problems. For example, developing and evaluating defences for network traffic analysis.
   - [Oldenburg et al. "Shift Your Shape: Correlating and Defending Mixnet Flows Based on Their Shapes." IEEE TDSC, 2025.](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=11193772)
 </div>
 
