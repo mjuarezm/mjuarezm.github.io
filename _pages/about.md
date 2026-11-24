@@ -30,7 +30,7 @@ I am a <a href="https://en.wikipedia.org/wiki/Lecturer#Comparison">Lecturer</a> 
 
 ## Research
 
-My research topics and recent works:
+My research focuses on three main strands, each illustrated by a recent work:
 
 <div class="research-topics" markdown="1">
 - **Security and Trustworthiness of AI Systems**: Evaluating the security, privacy, and reliability of AI systems, and developing techniques for their responsible deployment.
